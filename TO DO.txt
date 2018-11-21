@@ -1,0 +1,10 @@
+Zimi:
+- Theory (invullen en script voor difficulty generating)
+
+Enes:
+- Profile page
+- Challenges
+
+Jari:
+- login
+- leaderboard
