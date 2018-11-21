@@ -1,5 +1,6 @@
 package hsai.prototype.fietsveilig;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,7 +83,6 @@ public class HomeActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }
@@ -95,20 +95,23 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Intent transfer = null;
 
         if (id == R.id.nav_challenges) {
-            // Handle the camera action
+            transfer = new Intent(HomeActivity.this, ChallengesActivity.class);
         } else if (id == R.id.nav_help) {
-
+            transfer = new Intent(HomeActivity.this, HelpActivity.class);
         } else if (id == R.id.nav_leaderboard) {
-
+            transfer = new Intent(HomeActivity.this, LeaderboardActivity.class);
         } else if (id == R.id.nav_home) {
-
+            transfer = new Intent(HomeActivity.this, HomeActivity.class);
         } else if (id == R.id.nav_minigames) {
-
+            transfer = new Intent(HomeActivity.this, MiniGamesActivity.class);
         } else if (id == R.id.nav_settings) {
-
+            transfer = new Intent(HomeActivity.this, SettingsActivity.class);
         }
+
+        startActivity(transfer);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

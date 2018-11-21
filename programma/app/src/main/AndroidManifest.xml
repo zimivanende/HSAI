@@ -14,10 +14,18 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".MiniGamesActivity" />
+        <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".ChallengesActivity"></activity>
     </application>
 
 </manifest>
