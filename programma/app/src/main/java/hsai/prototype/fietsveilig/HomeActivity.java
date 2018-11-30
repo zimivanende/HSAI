@@ -1,6 +1,7 @@
 package hsai.prototype.fietsveilig;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,24 +58,8 @@ public class HomeActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        init();
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // set tap listener on profile imageView
-//        ImageView profileImage = findViewById(R.id.nav_header_profile_image);
-//        profileImage.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                TextView tv = findViewById(R.id.nav_header_profile_name);
-//                tv.setText("ok!");
-//
-//                return true;
-//            }
-//        });
     }
 
     @Override
@@ -88,6 +74,18 @@ public class HomeActivity extends AppCompatActivity
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void init(){
+        // go to profile activity when profile picture in hamburger menu is tapped
+        ImageView profilePic = findViewById(R.id.nav_header_profile_image);
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent transfer = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(transfer);
+            }
+        });
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
