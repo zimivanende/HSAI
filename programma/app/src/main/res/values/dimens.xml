@@ -15,4 +15,5 @@
     <dimen name="profile_picture_width"> 150dp</dimen>
     <dimen name="app_bar_height">300dp</dimen>
 
+
 </resources>
