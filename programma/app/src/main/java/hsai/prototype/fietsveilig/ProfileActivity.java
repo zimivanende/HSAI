@@ -96,7 +96,6 @@ public class ProfileActivity extends FragmentActivity {
      *      - page 2: friends
      */
     class PageAdapter extends FragmentPagerAdapter{
-        private final int NUMPAGES = 2;
         private Vector<Fragment> m_fragments = new Vector<>();
         private Vector<String> m_fragmentsTitles = new Vector<>();
 
@@ -117,7 +116,7 @@ public class ProfileActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-            return NUMPAGES;
+            return m_fragments.size();
         }
 
         public CharSequence getPageTitle(int position){
