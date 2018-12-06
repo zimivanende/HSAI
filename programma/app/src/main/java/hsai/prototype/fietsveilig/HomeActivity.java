@@ -57,6 +57,16 @@ public class HomeActivity extends AppCompatActivity
                 startActivity(transfer);
             }
         });
+
+        // go to profile activity when profile picture in hamburger menu is tapped
+        ImageView profilePic = findViewById(R.id.nav_header_profile_image);
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent transfer = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(transfer);
+            }
+        });
     }
 
 
@@ -90,18 +100,6 @@ public class HomeActivity extends AppCompatActivity
 //        }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void init(){
-        // go to profile activity when profile picture in hamburger menu is tapped
-        ImageView profilePic = findViewById(R.id.nav_header_profile_image);
-        profilePic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent transfer = new Intent(HomeActivity.this, ProfileActivity.class);
-                startActivity(transfer);
-            }
-        });
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
