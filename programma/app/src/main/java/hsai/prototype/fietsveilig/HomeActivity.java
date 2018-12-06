@@ -1,7 +1,6 @@
 package hsai.prototype.fietsveilig;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,9 +42,35 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        init();
     }
 
-    @Override
+    public Button m_button;
+
+    public void init() {
+        m_button = findViewById(R.id.button4);
+
+        m_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent transfer = new Intent(HomeActivity.this, HomeScreen.class);
+                startActivity(transfer);
+            }
+        });
+
+        // go to profile activity when profile picture in hamburger menu is tapped
+        ImageView profilePic = findViewById(R.id.nav_header_profile_image);
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent transfer = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(transfer);
+            }
+        });
+    }
+
+
+        @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -74,18 +100,6 @@ public class HomeActivity extends AppCompatActivity
 //        }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void init(){
-        // go to profile activity when profile picture in hamburger menu is tapped
-        ImageView profilePic = findViewById(R.id.nav_header_profile_image);
-        profilePic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent transfer = new Intent(HomeActivity.this, ProfileActivity.class);
-                startActivity(transfer);
-            }
-        });
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
