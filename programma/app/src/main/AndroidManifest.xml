@@ -19,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HomeScreen" />
+        <activity android:name=".ChooseTheoryDifficulty" />
+        <activity
+            android:name=".TheoryScreen"
+            android:label="@string/title_activity_theory_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />

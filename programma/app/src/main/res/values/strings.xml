@@ -95,4 +95,12 @@
     <string name="profile_title">Profile title</string>
 
 
+    <string name="study_button">Study</string>
+    <string name="test_button">Test</string>
+    <string name="minigames_button">Minigames</string>
+    <string name="beginner_button">Beginner</string>
+    <string name="intermediate_button">Intermediate</string>
+    <string name="expert_button">Expert</string>
+    <string name="title_activity_theory_screen">TheoryScreen</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
