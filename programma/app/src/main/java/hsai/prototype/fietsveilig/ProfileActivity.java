@@ -1,7 +1,5 @@
 package hsai.prototype.fietsveilig;
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +33,25 @@ public class ProfileActivity extends FragmentActivity {
         // add tabs
         m_tabs = (TabLayout) findViewById(R.id.tabLayout);
         m_tabs.setupWithViewPager(m_pages);
+
+
+        // tab click listener for navigating on tab click
+        m_tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // move to page corresponding with clicked tab
+                m_pages.setCurrentItem(tab.getPosition());
+            }
+
+            // we don't need these
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+            public void onTabReselected(TabLayout.Tab tab) {}
+        });
+
+        // tab is apparently behind the profile page content, bring it to the front
+        m_tabs.bringToFront();
     }
 
 
