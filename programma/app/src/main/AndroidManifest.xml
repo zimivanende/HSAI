@@ -24,18 +24,18 @@
         <activity
             android:name=".TheoryScreen"
             android:label="@string/title_activity_theory_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".MiniGamesActivity" />
         <activity android:name=".LeaderboardActivity" />
         <activity android:name=".HelpActivity" />
-        <activity android:name=".ChallengesActivity" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ChallengesActivity"></activity>
     </application>
 
 </manifest>

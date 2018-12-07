@@ -23,6 +23,17 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+/*
+ExpandableListView challenges = (ExpandableListView)findViewById(R.id.challenges_list);
+        ChallengesExpandableListAdapter challengeAdapter = new ChallengesExpandableListAdapter(this);
+        challenges.setAdapter(challengeAdapter);
+        <ExpandableListView
+        android:id="@+id/challenges_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ExpandableListView>
+* */
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
