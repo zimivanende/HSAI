@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- THIS FILE IS GARBAGE, IF THIS IS NOT NEEDED IN THE FUTURE WE'LL DELETE IT -->
+
 <android.support.v4.view.ViewPager
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/pager"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/profile_activity"
-    tools:context=".ProfileActivity"/>
+    android:layout_height="100dp"/>
 
