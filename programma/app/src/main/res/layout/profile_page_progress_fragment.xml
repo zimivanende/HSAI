@@ -115,7 +115,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:gravity="center"
-
+            android:text="Beg"
             app:layout_constraintBottom_toBottomOf="@+id/progressBarBeginner"
             app:layout_constraintEnd_toEndOf="@+id/progressBarBeginner"
             app:layout_constraintStart_toStartOf="@+id/progressBarBeginner"
@@ -155,7 +155,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:gravity="center"
-            android:text="I"
+            android:text="Inter"
             app:layout_constraintBottom_toBottomOf="@+id/progressBarIntermediate"
             app:layout_constraintEnd_toEndOf="@+id/progressBarIntermediate"
             app:layout_constraintTop_toTopOf="@+id/progressBarIntermediate" />
@@ -194,7 +194,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:gravity="center"
-            android:text="ADV"
+            android:text="Adv"
             app:layout_constraintBottom_toBottomOf="@+id/progressBarAdvanced"
             app:layout_constraintEnd_toEndOf="@+id/progressBarAdvanced"
             app:layout_constraintTop_toTopOf="@+id/progressBarAdvanced" />

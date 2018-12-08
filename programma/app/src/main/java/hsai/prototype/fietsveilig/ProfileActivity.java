@@ -2,6 +2,7 @@ package hsai.prototype.fietsveilig;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +12,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -120,12 +124,62 @@ public class ProfileActivity extends FragmentActivity {
          */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.profile_page_friends_fragment, container, false);
+            View friendsContainer = inflater.inflate(R.layout.profile_page_friends_fragment, container, false);
+
+            ListView lv = (ListView) friendsContainer.findViewById(R.id.friendsListView);
+            FriendsViewAdapter friendsAdapter = new FriendsViewAdapter(getActivity(), android.R.layout.simple_list_item_1);
+            lv.setAdapter(friendsAdapter);
+            return friendsContainer;
         }
 
         public static String getTitle(){
             return m_title;
         }
+
+        // this is the class that acts as an intermediate between the friends listview and the friends model
+        public static class FriendsViewAdapter extends ArrayAdapter<String>{
+            private Context m_context;
+
+            public FriendsViewAdapter(Context context, int resource) {
+                super(context, resource);
+                m_context= context;
+            }
+
+            public View getView(final int position, View convertView, ViewGroup parent){
+                if (convertView == null){
+                    LayoutInflater li = (LayoutInflater) m_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    convertView = li.inflate(R.layout.friend_item_layout, null);
+                }
+
+                // now find the textView, set its text and return the whole layout where it is situated
+                final TextView txtHeader = (TextView) convertView.findViewById(R.id.friend_name);
+                txtHeader.setText(FriendsModel.getFriend(position));
+
+                // item gets deleted when corresponding delete button is clicked
+                Button btnDelete = (Button) convertView.findViewById(R.id.deleteFriend);
+                btnDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FriendsModel.remove(position);
+                    }
+                });
+
+                return convertView;
+            }
+
+            public int getCount(){
+                return FriendsModel.getCount();
+            }
+
+            public String getItem(int pos){
+                return FriendsModel.getFriend(pos);
+            }
+
+            public boolean isEnabled(int position){
+                return true;
+            }
+        }
+
     }
 
     /**
