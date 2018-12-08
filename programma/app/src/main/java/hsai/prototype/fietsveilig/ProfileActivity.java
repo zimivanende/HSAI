@@ -1,5 +1,6 @@
 package hsai.prototype.fietsveilig;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.Vector;
 
@@ -55,7 +58,6 @@ public class ProfileActivity extends FragmentActivity {
     }
 
 
-
     // ############################################# begin page fragments #############################################
 
     public static class ProgressFragment extends Fragment{
@@ -73,7 +75,27 @@ public class ProfileActivity extends FragmentActivity {
          */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.profile_page_progress_fragment, container, false);
+            View progressContainer =  inflater.inflate(R.layout.profile_page_progress_fragment, container, false);
+
+            // get the textViews
+            TextView txtBeginner = (TextView) progressContainer.findViewById(R.id.textViewBeginnerPercentage);
+            TextView txtIntermediate = (TextView) progressContainer.findViewById(R.id.textViewIntermediatePercentage);
+            TextView txtAdvanced = (TextView) progressContainer.findViewById(R.id.textViewAdvancedPercentage);
+            TextView txtOverall = (TextView) progressContainer.findViewById(R.id.textViewOverallPercentage);
+
+            // get circular progress bars
+            ProgressBar prgsBeginner = (ProgressBar) progressContainer.findViewById(R.id.progressBarBeginner);
+            ProgressBar prgsIntermediate = (ProgressBar) progressContainer.findViewById(R.id.progressBarIntermediate);
+            ProgressBar prgsAdvanced = (ProgressBar) progressContainer.findViewById(R.id.progressBarAdvanced);
+            ProgressBar prgsOverall = (ProgressBar) progressContainer.findViewById(R.id.progressBarOverall);
+
+            // update percentages
+            txtBeginner.setText(prgsBeginner.getProgress() + "%");
+            txtIntermediate.setText(prgsIntermediate.getProgress() + "%");
+            txtAdvanced.setText(prgsAdvanced.getProgress() + "%");
+            txtOverall.setText(prgsOverall.getProgress() + "%");
+
+            return progressContainer;
         }
 
         public static String getTitle(){
