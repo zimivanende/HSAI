@@ -112,6 +112,7 @@ public class ProfileActivity extends FragmentActivity {
     public static class FriendsFragment extends Fragment{
         private static final String m_title = "Friends";
 
+
         /**
          * When fragment is being created
          */
@@ -129,6 +130,7 @@ public class ProfileActivity extends FragmentActivity {
             ListView lv = (ListView) friendsContainer.findViewById(R.id.friendsListView);
             FriendsViewAdapter friendsAdapter = new FriendsViewAdapter(getActivity(), android.R.layout.simple_list_item_1);
             lv.setAdapter(friendsAdapter);
+
             return friendsContainer;
         }
 
@@ -139,6 +141,7 @@ public class ProfileActivity extends FragmentActivity {
         // this is the class that acts as an intermediate between the friends listview and the friends model
         public static class FriendsViewAdapter extends ArrayAdapter<String>{
             private Context m_context;
+            private FriendsViewAdapter m_friendsAdapter = this;
 
             public FriendsViewAdapter(Context context, int resource) {
                 super(context, resource);
@@ -161,6 +164,7 @@ public class ProfileActivity extends FragmentActivity {
                     @Override
                     public void onClick(View v) {
                         FriendsModel.remove(position);
+                        m_friendsAdapter.notifyDataSetChanged();
                     }
                 });
 

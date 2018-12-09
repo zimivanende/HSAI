@@ -7,15 +7,23 @@ import java.util.Vector;
 public class FriendsModel {
 
     private static Vector<String> m_friends = new Vector<>();
+    private static boolean m_initialized = false;
 
-    public static Vector<String> getFriends(){
-        if (m_friends.size() == 0){
+
+    private static void init(){
+        if (!m_initialized){
             m_friends.add("Joe (beginner)");
             m_friends.add("Cindy (intermediate)");
             m_friends.add("Bert (experienced)");
             m_friends.add("Klara (rookie)");
             m_friends.add("Gert (expert)");
+            m_initialized = true;
+        }
+    }
 
+    public static Vector<String> getFriends(){
+        if (m_friends.size() == 0){
+            init();
         }
 
         return m_friends;
@@ -30,6 +38,11 @@ public class FriendsModel {
     }
 
     public static int getCount(){
-        return m_friends.size();
+        if (m_friends.size() == 0){
+            init();
+            return m_friends.size();
+        }
+        else
+            return m_friends.size();
     }
 }
