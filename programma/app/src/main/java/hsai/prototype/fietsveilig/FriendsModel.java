@@ -14,7 +14,7 @@ public class FriendsModel {
         if (!m_initialized){
             m_friends.add("Joe (beginner)");
             m_friends.add("Cindy (intermediate)");
-            m_friends.add("Bert (experienced)");
+            m_friends.add("Uvuvwevwevwe Onyetenyevwe (experienced)");
             m_friends.add("Klara (rookie)");
             m_friends.add("Gert (expert)");
             m_initialized = true;
