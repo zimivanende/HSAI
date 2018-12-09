@@ -1,6 +1,8 @@
 package hsai.prototype.fietsveilig;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.TabLayout;
@@ -163,8 +165,24 @@ public class ProfileActivity extends FragmentActivity {
                 btnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        FriendsModel.remove(position);
-                        m_friendsAdapter.notifyDataSetChanged();
+                        // delete button is clicked, now ask for a confirmation
+
+                        new AlertDialog.Builder(m_context)
+                                .setTitle("Confirmation")
+                                .setMessage("Are you sure that you want to delete " + FriendsModel.getFriend(position) + " from your list of friends?")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+
+                                // when yes is clicked, the selected item is going to be deleted
+                                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        FriendsModel.remove(position);
+                                        m_friendsAdapter.notifyDataSetChanged();
+                                    }
+                                })
+
+                                // do nothing when no is selected
+                                .setNegativeButton("no", null).show();
                     }
                 });
 
