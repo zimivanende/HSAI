@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Fiets Veilig</string>
+
+    <!-- HAMBURGER MENU ITEMS -->
+    <string name="home">Home</string>
+    <string name="leaderboard">Scorebord</string>
+    <string name="challenges">Uitdagingen</string>
+    <string name="minigames">Minigames</string>
+    <string name="help">Help</string>
+    <string name="username">Username</string>
+    <string name="nav_drawer_open">Open navigation drawer</string>
+    <string name="nav_drawer_close">Close navigation drawer</string>
+
+
+    <!-- HOME FRAGMENT -->
+    <string name="study_button">Study</string>
+    <string name="test_button">Test</string>
+    <string name="minigames_button">Minigames</string>
+
+
+</resources>
