@@ -19,7 +19,9 @@
             android:layout_marginTop="@dimen/spacing_med"
             android:layout_marginRight="@dimen/spacing_small_side"
             android:text="@string/study_button"
-            android:textSize="36sp"/>
+            android:textSize="36sp"
+            android:textColor="@color/text_on_yellow"
+            android:background="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/buttonTest"
@@ -30,7 +32,9 @@
             android:layout_marginTop="@dimen/spacing_med"
             android:layout_marginRight="@dimen/spacing_small_side"
             android:text="@string/test_button"
-            android:textSize="36sp"/>
+            android:textSize="36sp"
+            android:textColor="@color/text_on_yellow"
+            android:background="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/buttonMinigames"
@@ -42,7 +46,9 @@
             android:layout_marginRight="@dimen/spacing_small_side"
             android:layout_marginBottom="@dimen/spacing_med"
             android:text="@string/minigames_button"
-            android:textSize="36sp"/>
+            android:textSize="36sp"
+            android:textColor="@color/text_on_yellow"
+            android:background="@color/colorPrimary"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#eac234</color>
+    <color name="colorPrimaryDark">#c69f14</color>
+    <color name="colorAccent">#ea4634</color>
+    <color name="background_color">#353636</color>
+    <color name="seperator">#484949</color>
+    <color name="text_on_yellow">#353636</color>
+    <color name="text_on_grey">#eac234</color>
 
 
     <!-- HAMBURGER MENU -->
-    <color name="usernameColor">#ffffff</color>
+    <color name="usernameColor">#eac234</color>
 
 </resources>
