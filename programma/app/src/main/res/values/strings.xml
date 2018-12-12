@@ -25,4 +25,6 @@
     <string name="test_button">Oefen</string>
     <string name="minigames_button">Minigames</string>
     <string name="title_activity_theory_screen">Theorie</string>
+
+    <string name="Username">Edgar</string>
 </resources>

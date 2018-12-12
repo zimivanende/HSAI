@@ -22,7 +22,8 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/title_activity_theory_screen">
+            app:title="@string/title_activity_theory_screen"
+            app:titleTextColor="@color/black">
 
         </android.support.v7.widget.Toolbar>
 

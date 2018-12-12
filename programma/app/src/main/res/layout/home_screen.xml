@@ -25,7 +25,9 @@
             android:layout_marginLeft="@dimen/spacing_small_side"
             android:layout_marginTop="@dimen/spacing_med"
             android:layout_marginRight="@dimen/spacing_small_side"
+            android:background="@color/colorPrimary"
             android:text="@string/test_button"
+            android:textColor="@color/black"
             tools:layout_editor_absoluteX="10dp"
             tools:layout_editor_absoluteY="136dp" />
 
@@ -36,7 +38,9 @@
             android:layout_marginLeft="@dimen/spacing_small_side"
             android:layout_marginTop="@dimen/spacing_med"
             android:layout_marginRight="@dimen/spacing_small_side"
+            android:background="@color/colorPrimary"
             android:text="@string/study_button"
+            android:textColor="@color/black"
             tools:layout_editor_absoluteX="10dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -47,7 +51,9 @@
             android:layout_marginLeft="@dimen/spacing_small_side"
             android:layout_marginTop="@dimen/spacing_med"
             android:layout_marginRight="@dimen/spacing_small_side"
+            android:background="@color/colorPrimary"
             android:text="@string/minigames_button"
+            android:textColor="@color/black"
             tools:layout_editor_absoluteX="136dp"
             tools:layout_editor_absoluteY="268dp" />
     </LinearLayout>
