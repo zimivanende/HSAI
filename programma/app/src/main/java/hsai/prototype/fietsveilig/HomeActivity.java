@@ -39,12 +39,10 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    public Button m_button;
-
     public void init() {
-        Button btnStudy = (Button)findViewById(R.id.buttonStudy);
-        Button btnTest = (Button)findViewById(R.id.buttonTest);
-        Button btnMinigames = (Button)findViewById(R.id.buttonMinigames);
+        Button btnStudy = (Button)findViewById(R.id.studyButton);
+        Button btnTest = (Button)findViewById(R.id.testButton);
+        Button btnMinigames = (Button)findViewById(R.id.minigamesButton);
 
         // attach listeners to the buttons to go to the correct activity
         btnStudy.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +82,7 @@ public class HomeActivity extends AppCompatActivity
         });
     }
 
-
-        @Override
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
