@@ -94,6 +94,8 @@
     <string name="profile_name">Edgar</string>
     <string name="profile_title">Experienced</string>
 
+    <!-- THEORY ACTIVITY -->
+    <string name="theoryActivityTitle">Theorie</string>
 
     <string name="study_button">Study</string>
     <string name="test_button">Test</string>

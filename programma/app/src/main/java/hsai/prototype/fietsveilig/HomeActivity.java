@@ -2,10 +2,10 @@ package hsai.prototype.fietsveilig;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
+import android.text.Layout;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,23 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-/*
-ExpandableListView challenges = (ExpandableListView)findViewById(R.id.challenges_list);
-        ChallengesExpandableListAdapter challengeAdapter = new ChallengesExpandableListAdapter(this);
-        challenges.setAdapter(challengeAdapter);
-        <ExpandableListView
-        android:id="@+id/challenges_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ExpandableListView>
-* */
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -58,12 +42,33 @@ public class HomeActivity extends AppCompatActivity
     public Button m_button;
 
     public void init() {
-        m_button = findViewById(R.id.button4);
+        Button btnStudy = (Button)findViewById(R.id.buttonStudy);
+        Button btnTest = (Button)findViewById(R.id.buttonTest);
+        Button btnMinigames = (Button)findViewById(R.id.buttonMinigames);
 
-        m_button.setOnClickListener(new View.OnClickListener() {
+        // attach listeners to the buttons to go to the correct activity
+        btnStudy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent transfer = new Intent(HomeActivity.this, HomeScreen.class);
+                Intent transfer = new Intent(HomeActivity.this, TheoryScreen.class);
+                startActivity(transfer);
+            }
+        });
+
+        // TODO: add test activity
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent transfer = new Intent(HomeActivity.this, TheoryScreen.class);
+//                startActivity(transfer);
+                Snackbar.make((ConstraintLayout)findViewById(R.id.mainContainerHome), "Add a testactivity", Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+        btnMinigames.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent transfer = new Intent(HomeActivity.this, MiniGamesActivity.class);
                 startActivity(transfer);
             }
         });

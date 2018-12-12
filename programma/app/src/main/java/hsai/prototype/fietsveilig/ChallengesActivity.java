@@ -3,7 +3,6 @@ package hsai.prototype.fietsveilig;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
-import android.widget.Toolbar;
 
 public class ChallengesActivity extends AppCompatActivity {
 
@@ -19,5 +18,22 @@ public class ChallengesActivity extends AppCompatActivity {
         challenges.setAdapter(challengeAdapter);
 
         challenges.expandGroup(0); // expand daily challenges
+
+
+        // add hamburger menu
+        /*
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+         */
     }
 }
