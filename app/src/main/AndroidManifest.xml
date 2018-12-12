@@ -27,6 +27,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.samples.fietsveilig.MainActivity" />
         </activity>
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/title_activity_test"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MiniGamesActivity"
+            android:label="@string/title_activity_mini_games"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

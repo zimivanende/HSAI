@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Theorie"
+    tools:context=".TheorieActivity"
     tools:showIn="@layout/activity_theorie">
 
+    <ExpandableListView
+        android:id="@+id/theorie_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconTint="@color/colorPrimary">
+    </ExpandableListView>
+
+    <!-- TODO: Make arrows yellow -->
 </android.support.constraint.ConstraintLayout>
