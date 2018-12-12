@@ -39,4 +39,5 @@
     <string name="title_activity_theory_screen">Theorie</string>
 
     <string name="Username">Edgar</string>
+    <string name="leaderboard_item_text">TextView</string>
 </resources>
