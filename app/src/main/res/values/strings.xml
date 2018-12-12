@@ -23,5 +23,11 @@
     <string name="title_activity_test">Test</string>
     <string name="title_activity_mini_games">Mini Games</string>
 
+    <!-- PROFILE PAGE -->
+    <string name="profile_picture_description">Profile picture</string>
+    <string name="profile_name">Edgar</string>
+    <string name="profile_title">Experienced</string>
+
+
 
 </resources>
