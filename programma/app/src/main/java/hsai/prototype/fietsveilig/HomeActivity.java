@@ -134,8 +134,6 @@ public class HomeActivity extends AppCompatActivity
             transfer = new Intent(HomeActivity.this, HomeActivity.class);
         } else if (id == R.id.nav_minigames) {
             transfer = new Intent(HomeActivity.this, MiniGamesActivity.class);
-        } else if (id == R.id.nav_settings) {
-            transfer = new Intent(HomeActivity.this, SettingsActivity.class);
         }
 
         startActivity(transfer);
