@@ -22,7 +22,7 @@ public class HomeScreen extends AppCompatActivity {
        m_button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               startActivity(new Intent(HomeScreen.this, ChooseTheoryDifficulty.class));
+               startActivity(new Intent(HomeScreen.this, TheoryScreen.class));
            }
        });
 
