@@ -17,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:gravity="center_vertical"
         android:text="dummy"
-        android:textColor="@color/text_on_grey"
+        android:textColor="@color/textOnWhite"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/background_color</item>
-        <item name="android:textColorPrimary">@color/text_on_grey</item>
+        <item name="android:textColorPrimary">@color/textOnWhite</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 

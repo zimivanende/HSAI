@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:clickable="false"
-        android:buttonTint="@color/text_on_grey"/>
+        android:buttonTint="@color/textOnWhite"/>
 
     <TextView
         android:id="@+id/challenge_item"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:padding="5dp"
-        android:textColor="@color/text_on_grey"
+        android:textColor="@color/textOnWhite"
         android:layout_marginLeft="5dp"/>
 
 </LinearLayout>
