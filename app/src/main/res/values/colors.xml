@@ -11,4 +11,15 @@
     <!-- HAMBURGER MENU -->
     <color name="usernameColor">#C75145</color>
 
+    <!-- DEFAULT COLORS -->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">  #ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="blue"> #0000ff</color>
+
+    <!-- MULTIPLE CHOICE -->
+    <color name="correct">#8ced8c</color>
+    <color name="incorrect">#e95b5b</color>
+
 </resources>
