@@ -64,7 +64,7 @@ public class ChallengesExpandableListAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
-    @Override// TODO
+    @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 
         // find header text
@@ -84,7 +84,7 @@ public class ChallengesExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
-    @Override// TODO
+    @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         String childText = "X";
 

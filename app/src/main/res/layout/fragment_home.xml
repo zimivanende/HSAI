@@ -20,7 +20,7 @@
             android:layout_weight="2"
             android:background="@color/colorPrimary"
             android:text="@string/study_button"
-            android:textColor="@color/text_on_yellow"
+            android:textColor="@color/textOnOthers"
             android:textSize="36sp" />
 
         <Button
@@ -33,7 +33,7 @@
             android:layout_marginRight="@dimen/spacing_small_side"
             android:text="@string/test_button"
             android:textSize="36sp"
-            android:textColor="@color/text_on_yellow"
+            android:textColor="@color/textOnOthers"
             android:background="@color/colorPrimary"/>
 
         <Button
@@ -47,7 +47,7 @@
             android:layout_marginBottom="@dimen/spacing_med"
             android:text="@string/minigames_button"
             android:textSize="36sp"
-            android:textColor="@color/text_on_yellow"
+            android:textColor="@color/textOnOthers"
             android:background="@color/colorPrimary"/>
     </LinearLayout>
 
