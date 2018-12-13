@@ -19,7 +19,7 @@
     <color name="blue"> #0000ff</color>
 
     <!-- MULTIPLE CHOICE -->
-    <color name="correct">#8ced8c</color>
+    <color name="correct">#7dde7d</color>
     <color name="incorrect">#e95b5b</color>
 
 </resources>
