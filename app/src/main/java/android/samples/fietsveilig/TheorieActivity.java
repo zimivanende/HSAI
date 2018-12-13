@@ -14,10 +14,6 @@ public class TheorieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theorie);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("TheorieActivity");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // connect expandable listview with it's adapter
         ExpandableListView theorie = (ExpandableListView)findViewById(R.id.theorie_list);

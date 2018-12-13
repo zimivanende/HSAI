@@ -21,8 +21,7 @@
         <activity
             android:name=".TheorieActivity"
             android:label="@string/title_activity_theorie"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.samples.fietsveilig.MainActivity" />
@@ -30,8 +29,7 @@
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.samples.fietsveilig.MainActivity" />
@@ -39,8 +37,7 @@
         <activity
             android:name=".MiniGamesActivity"
             android:label="@string/title_activity_mini_games"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.samples.fietsveilig.MainActivity" />
