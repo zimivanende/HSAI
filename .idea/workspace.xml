@@ -15,25 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e776c8d-f4c8-4608-9159-36937af9eda8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/MiniGamesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/MiniGamesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/TestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/TestActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/TestActivityFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/TestActivityFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/TheorieActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/samples/fietsveilig/TheorieActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mini_games.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mini_games.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_theorie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_theorie.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_theorie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_theorie.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/theorie_child_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/theorie_child_item_layout.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
