@@ -1,5 +1,7 @@
 package android.samples.fietsveilig;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.samples.fietsveilig.leaderboard.LeaderboardFragment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -75,7 +77,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTitle("Help");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HelpFragment()).commit();
                 break;
-
+            case R.id.nav_logout:
+                SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putBoolean("isLoggedIn", false);
+                editor.putBoolean("isGuest", false);
+                editor.apply();
+                finish();
+                Intent transfer = new Intent(this, LoginActivity.class);
+                startActivity(transfer);
+                break;
         }
 
         m_drawer.closeDrawer(GravityCompat.START);
