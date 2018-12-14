@@ -16,6 +16,12 @@ public class NumberInputFragment extends TestActivityFragment {
     private View m_ui;
     private int m_min = 0;
     private int m_max = 10;
+    private int m_score = 0;
+
+    @Override
+    public int getScore() {
+        return m_score;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,6 +96,7 @@ public class NumberInputFragment extends TestActivityFragment {
             public void onClick(View v) {
                 int val = Integer.parseInt(textview_number.getText().toString());
                 if (val == m_correctAnswer){
+                    m_score = 1;
                     lblFeedback.setText("Correct!");
                     lblFeedback.setTextColor(getResources().getColor(R.color.correct));
                 }
@@ -110,7 +117,7 @@ public class NumberInputFragment extends TestActivityFragment {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: find a way to open the next test fragment
+                ((TestActivity)getActivity()).setNextTestActivity();
             }
         });
     }

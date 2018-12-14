@@ -26,7 +26,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
-            android:text="@string/progress_overall"
+            android:text="@string/progress_progress"
             android:textSize="24sp"
             android:textColor="@color/textOnWhite"
             app:layout_constraintEnd_toEndOf="parent"

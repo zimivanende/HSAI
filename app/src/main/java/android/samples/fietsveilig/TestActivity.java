@@ -1,25 +1,31 @@
 package android.samples.fietsveilig;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+
+import java.util.Vector;
 
 //TODO: use ic_info_outline_black as button for information about the current test (question)
 
 public class TestActivity extends AppCompatActivity {
+    private Vector<TestActivityFragment> m_testFragments = new Vector<>();
+    private TestActivityFragment m_currentQuestion = null;
+    private TestResultFragment m_resultFragment; // TODO
+    private int m_accumulatedScore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        // for test only
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NumberInputFragment()).commit();
+        m_resultFragment = new TestResultFragment();
+        m_testFragments.add(new NumberInputFragment());
+        m_testFragments.add(new MultipleChoiceFragment());
+        m_currentQuestion = m_testFragments.get(0);
+
+        // set first quistion as starting fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
 
     }
 
@@ -29,6 +35,22 @@ public class TestActivity extends AppCompatActivity {
                 .setMessage(message)
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setNeutralButton("ok", null).show();
+    }
+
+    public void setNextTestActivity(){
+        int currentIndex = m_testFragments.indexOf(m_currentQuestion);
+
+        // if there are no more questions go to resultFragment
+        if (currentIndex == (m_testFragments.size()-1)){
+            m_resultFragment.setScore(m_accumulatedScore, m_testFragments.size());
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_resultFragment).commit();
+        }
+        // if there are questions remaining, set next question fragment
+        else if (currentIndex < m_testFragments.size()){
+            m_accumulatedScore += m_currentQuestion.getScore();
+            m_currentQuestion = m_testFragments.get(currentIndex+1);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_currentQuestion).commit();
+        }
     }
 
 }
