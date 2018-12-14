@@ -19,7 +19,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         // for test only
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MultipleChoiceFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NumberInputFragment()).commit();
 
     }
 

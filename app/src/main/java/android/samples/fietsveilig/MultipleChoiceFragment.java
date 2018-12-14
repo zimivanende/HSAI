@@ -17,7 +17,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO find a way to set hint and explanation
         // TODO find a way to set m_correctAnswer
-        View UI = inflater.inflate(R.layout.fragment_multiple_choice, container, false);
+        View UI = inflater.inflate(R.layout.fragment_test_multiple_choice, container, false);
         m_ui = UI;
 
         initButtons();
