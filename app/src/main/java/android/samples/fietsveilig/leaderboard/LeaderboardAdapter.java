@@ -47,7 +47,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
             m_username = leaderboardItem.findViewById(R.id.username);
             m_rank = leaderboardItem.findViewById(R.id.user_rank);
             m_parentLayout = leaderboardItem.findViewById(R.id.leaderboard_parentLayout);
-            m_image = leaderboardItem.findViewById(R.id.profile_image);
+            m_image = leaderboardItem.findViewById(R.drawable.ic_person_black_24dp);
         }
     }
 
