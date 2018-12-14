@@ -1,5 +1,6 @@
-package hsai.prototype.fietsveilig.leaderboard;
+package android.samples.fietsveilig.leaderboard;
 
+import android.samples.fietsveilig.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import hsai.prototype.fietsveilig.R;
+
 
 public class LeaderboardActivity extends AppCompatActivity {
 

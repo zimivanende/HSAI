@@ -1,6 +1,9 @@
-package hsai.prototype.fietsveilig.leaderboard;
+package android.samples.fietsveilig.leaderboard;
 
 import android.content.Context;
+import android.samples.fietsveilig.R;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +14,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import hsai.prototype.fietsveilig.R;
 
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder> {
 
