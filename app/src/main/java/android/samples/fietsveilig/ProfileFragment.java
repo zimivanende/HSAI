@@ -174,11 +174,11 @@ public class ProfileFragment extends Fragment {
 
                         new AlertDialog.Builder(m_context)
                                 .setTitle("Confirmation")
-                                .setMessage("Are you sure that you want to delete " + FriendsModel.getFriend(position) + " from your list of friends?")
+                                .setMessage("Ben je zeker dat je " + FriendsModel.getFriend(position) + " van je vriendenlijst wilt verwijderen?")
                                 .setIcon(android.R.drawable.ic_dialog_alert)
 
                                 // when yes is clicked, the selected item is going to be deleted
-                                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         FriendsModel.remove(position);
@@ -187,7 +187,7 @@ public class ProfileFragment extends Fragment {
                                 })
 
                                 // do nothing when no is selected
-                                .setNegativeButton("no", null).show();
+                                .setNegativeButton("Nee", null).show();
                     }
                 });
 
@@ -222,10 +222,10 @@ public class ProfileFragment extends Fragment {
         public PageAdapter(FragmentManager fm) {
             super(fm);
             m_fragments.add(new ProgressFragment());
-            m_fragmentsTitles.add("Progress");
+            m_fragmentsTitles.add("Vooruitgang");
 
             m_fragments.add(new FriendsFragment());
-            m_fragmentsTitles.add("Friends");
+            m_fragmentsTitles.add("Vrienden");
         }
 
         @Override

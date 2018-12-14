@@ -12,9 +12,9 @@ public class FriendsModel {
     private static void init(){
         if (!m_initialized){
             m_friends.add("Joe (Beginner)");
-            m_friends.add("Cindy (Intermediate)");
-            m_friends.add("Davy (Experienced)");
-            m_friends.add("Klara (Rookie)");
+            m_friends.add("Cindy (Intermediar)");
+            m_friends.add("Davy (Ervaren)");
+            m_friends.add("Klara (Nieuweling)");
             m_friends.add("Gert (Expert)");
             m_initialized = true;
         }
