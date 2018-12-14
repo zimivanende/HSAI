@@ -1,6 +1,8 @@
 package android.samples.fietsveilig;
 
+import android.samples.fietsveilig.challenges.ChallengesFragment;
 import android.samples.fietsveilig.leaderboard.LeaderboardFragment;
+import android.samples.fietsveilig.profile.ProfileFragment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;

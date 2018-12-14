@@ -1,7 +1,8 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.samples.fietsveilig.R;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.Vector;

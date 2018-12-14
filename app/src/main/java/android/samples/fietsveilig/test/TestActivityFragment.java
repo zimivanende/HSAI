@@ -1,5 +1,6 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.test;
 
+import android.samples.fietsveilig.R;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

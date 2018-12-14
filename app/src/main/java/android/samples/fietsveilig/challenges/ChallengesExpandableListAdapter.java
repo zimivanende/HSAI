@@ -1,6 +1,7 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.challenges;
 
 import android.content.Context;
+import android.samples.fietsveilig.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

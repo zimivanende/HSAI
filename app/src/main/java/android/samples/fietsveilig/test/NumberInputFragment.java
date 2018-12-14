@@ -1,12 +1,14 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.samples.fietsveilig.R;
+import android.samples.fietsveilig.test.TestActivity;
+import android.samples.fietsveilig.test.TestActivityFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 public class NumberInputFragment extends TestActivityFragment {

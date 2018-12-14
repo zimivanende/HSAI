@@ -1,6 +1,8 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.challenges;
 
 import android.os.Bundle;
+import android.samples.fietsveilig.R;
+import android.samples.fietsveilig.challenges.ChallengesExpandableListAdapter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
