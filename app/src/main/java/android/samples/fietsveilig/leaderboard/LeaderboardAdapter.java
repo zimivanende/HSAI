@@ -73,7 +73,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
         holder.m_score.setText(m_scores.get(position));
 
         // TODO: add image loading
-        holder.m_image.setImageResource(R.mipmap.ic_launcher);
+        holder.m_image.setImageResource(R.drawable.ic_person_black_24dp);
 
         holder.m_parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override

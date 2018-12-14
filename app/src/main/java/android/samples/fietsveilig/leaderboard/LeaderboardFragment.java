@@ -1,6 +1,12 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.leaderboard;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.samples.fietsveilig.FriendsModel;
+import android.samples.fietsveilig.ProfileFragment;
+import android.samples.fietsveilig.R;
 import android.samples.fietsveilig.leaderboard.LeaderboardAdapter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +16,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -48,13 +58,13 @@ public class LeaderboardFragment extends Fragment {
         usernames.add("Jari8");
         ArrayList<String> images = new ArrayList<>();
         ArrayList<String> scores = new ArrayList<>();
-        scores.add("10000");
-        scores.add("2000");
-        scores.add("300");
-        scores.add("240");
-        scores.add("150");
-        scores.add("60");
-        scores.add("27");
+        scores.add("98");
+        scores.add("87");
+        scores.add("75");
+        scores.add("63");
+        scores.add("51");
+        scores.add("38");
+        scores.add("35");
         scores.add("18");
 
         m_leaderboardAdapter = new LeaderboardAdapter(images, usernames, ranks, scores, UI.getContext());
@@ -65,4 +75,5 @@ public class LeaderboardFragment extends Fragment {
     private RecyclerView m_leaderboardView;
     private RecyclerView.Adapter m_leaderboardAdapter;
     private RecyclerView.LayoutManager m_leaderboardLayoutManager;
+
 }
