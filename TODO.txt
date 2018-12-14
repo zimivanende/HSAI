@@ -1,5 +1,4 @@
 Jari:
-- Leaderbord met tabs: oefen, vind en scan, navigatie route, 2 dezelfde vinden
 - Login en logout + Scherm dat komt als je uitgelogd bent waar je kan kiezen tussen gast en inloggen
 - Mini games basis look laten zien => zoek en scan borden, oefen routen (navigatie), 2 dezelfde zoeken
 
