@@ -16,6 +16,9 @@ public class FriendsModel {
             m_friends.add("Davy (Ervaren)");
             m_friends.add("Klara (Nieuweling)");
             m_friends.add("Gert (Expert)");
+            m_friends.add("Mechiel  (Intermediar)");
+            m_friends.add("Jan (Beginner)");
+            m_friends.add("Thijs  (Beginner)");
             m_initialized = true;
         }
     }
