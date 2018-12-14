@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewOverAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="OVERALL"
+            android:textSize="24sp"
+            android:textColor="@color/textOnWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            style="?android:progressBarStyleHorizontal"
+            android:id="@+id/progressBarOverall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:progress="56"
+            android:rotation="270"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewOverAll" />
+
+        <TextView
+            android:id="@+id/textViewOverallPercentage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="OA"
+            android:textSize="24sp"
+            android:textColor="@color/textOnWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBarOverall"
+            app:layout_constraintEnd_toEndOf="@+id/progressBarOverall"
+            app:layout_constraintTop_toTopOf="@+id/progressBarOverall" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <TextView
+            android:id="@+id/textViewTheory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="THEORY"
+            android:textColor="@color/textOnWhite"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTheoryBeginner"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginStart="60dp"
+            android:gravity="center"
+            android:text="Beginner"
+            android:textColor="@color/textOnWhite"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTheory" />
+
+        <ProgressBar
+            android:id="@+id/progressBarBeginner"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="8dp"
+            android:progress="100"
+            android:rotation="270"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTheory"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewBeginnerPercentage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:textColor="@color/textOnWhite"
+            android:text="Beg"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBarBeginner"
+            app:layout_constraintEnd_toEndOf="@+id/progressBarBeginner"
+            app:layout_constraintStart_toStartOf="@+id/progressBarBeginner"
+            app:layout_constraintTop_toTopOf="@+id/progressBarBeginner" />
+
+        <TextView
+            android:id="@+id/textViewTheoryIntermediate"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="@color/textOnWhite"
+            android:text="Intermediate"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTheoryBeginner" />
+
+        <ProgressBar
+            android:id="@+id/progressBarIntermediate"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="8dp"
+            android:progress="67"
+            android:rotation="270"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarBeginner"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewIntermediatePercentage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:textColor="@color/textOnWhite"
+            android:text="Inter"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBarIntermediate"
+            app:layout_constraintEnd_toEndOf="@+id/progressBarIntermediate"
+            app:layout_constraintTop_toTopOf="@+id/progressBarIntermediate" />
+
+        <TextView
+            android:id="@+id/textViewTheoryAdvanced"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="@color/textOnWhite"
+            android:text="Advanced"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTheoryIntermediate" />
+
+        <ProgressBar
+            android:id="@+id/progressBarAdvanced"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="8dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/circle"
+            android:rotation="270"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarIntermediate"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textViewAdvancedPercentage"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:textColor="@color/textOnWhite"
+            android:text="Adv"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBarAdvanced"
+            app:layout_constraintEnd_toEndOf="@+id/progressBarAdvanced"
+            app:layout_constraintTop_toTopOf="@+id/progressBarAdvanced" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
