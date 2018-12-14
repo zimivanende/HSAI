@@ -94,7 +94,6 @@ public class ProfileFragment extends Fragment {
             TextView txtBeginner = (TextView) progressContainer.findViewById(R.id.textViewBeginnerPercentage);
             TextView txtIntermediate = (TextView) progressContainer.findViewById(R.id.textViewIntermediatePercentage);
             TextView txtAdvanced = (TextView) progressContainer.findViewById(R.id.textViewAdvancedPercentage);
-            TextView txtOverall = (TextView) progressContainer.findViewById(R.id.textViewOverallPercentage);
 
             // get circular progress bars
             ProgressBar prgsBeginner = (ProgressBar) progressContainer.findViewById(R.id.progressBarBeginner);
@@ -106,7 +105,6 @@ public class ProfileFragment extends Fragment {
             txtBeginner.setText(prgsBeginner.getProgress() + "%");
             txtIntermediate.setText(prgsIntermediate.getProgress() + "%");
             txtAdvanced.setText(prgsAdvanced.getProgress() + "%");
-            txtOverall.setText(prgsOverall.getProgress() + "%");
 
             return progressContainer;
         }
