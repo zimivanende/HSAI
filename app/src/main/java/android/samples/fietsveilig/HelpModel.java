@@ -11,7 +11,6 @@ public class HelpModel {
      * @return: Map<String, String> the key is the title, and the data is the explanation
      */
     public static Vector<Pair<String, String>> getHelpData(){
-        // TODO put real data
         Vector<Pair<String, String>> data = new Vector<>();
 
         data.add(new Pair("Titel 1", "Uitleg 1"));
