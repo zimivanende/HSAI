@@ -35,7 +35,7 @@ public class LeaderboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View UI = inflater.inflate(R.layout.fragment_leaderboard, container, false);
         // set m_pageAdapter as our viewPager's adapter
-        m_pages = (ViewPager) UI.findViewById(R.id.pager);
+        m_pages = (ViewPager) UI.findViewById(R.id.leaderboard_pager);
         m_pages.setAdapter(m_pageAdapter); // now the adapter is going to provide the pages to the view
 
         // add tabs
@@ -98,12 +98,12 @@ public class LeaderboardFragment extends Fragment {
             ranks.add("7");
             ranks.add("8");
             ArrayList<String> usernames = new ArrayList<>();
-            usernames.add("Jari1");
-            usernames.add("Jari2");
-            usernames.add("Jari3");
-            usernames.add("Jari4");
-            usernames.add("Jari5");
-            usernames.add("Jari6");
+            usernames.add("Gert");
+            usernames.add("Davy");
+            usernames.add("Edgar (Ik)");
+            usernames.add("Cindy");
+            usernames.add("Joe");
+            usernames.add("Klara");
             usernames.add("Jari7");
             usernames.add("Jari8");
             ArrayList<String> images = new ArrayList<>();
@@ -129,7 +129,7 @@ public class LeaderboardFragment extends Fragment {
 
     // ######################### PAGE ADAPTER ########################
 
-    class PageAdapter extends FragmentPagerAdapter {
+    private class PageAdapter extends FragmentPagerAdapter {
         private Vector<Fragment> m_fragments = new Vector<>();
         private Vector<String> m_fragmentsTitles = new Vector<>();
 
