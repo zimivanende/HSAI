@@ -53,6 +53,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
 
     // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
     public LeaderboardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
