@@ -5,8 +5,6 @@ Jari:
 - Mini games basis look laten zien => zoek en scan borden, oefen routen (navigatie), 2 dezelfde zoeken
 
 Enes:
-- Taal aanpassen hints verwijder vrienden, profiel pagina
-- Profiel progress
 - Challenges content invullen
 - Test volgende vraag knop werkend maken
 - Test einde score scherm
