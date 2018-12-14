@@ -97,6 +97,7 @@ public class LeaderboardFragment extends Fragment {
             ranks.add("6");
             ranks.add("7");
             ranks.add("8");
+            ranks.add("9");
             ArrayList<String> usernames = new ArrayList<>();
             usernames.add("Gert");
             usernames.add("Davy");
@@ -104,8 +105,9 @@ public class LeaderboardFragment extends Fragment {
             usernames.add("Cindy");
             usernames.add("Joe");
             usernames.add("Klara");
-            usernames.add("Jari7");
-            usernames.add("Jari8");
+            usernames.add("Mechiel");
+            usernames.add("Jan");
+            usernames.add("Thijs");
             ArrayList<String> images = new ArrayList<>();
             ArrayList<String> scores = new ArrayList<>();
             scores.add("98");
@@ -116,6 +118,7 @@ public class LeaderboardFragment extends Fragment {
             scores.add("46");
             scores.add("39");
             scores.add("31");
+            scores.add("25");
 
             m_leaderboardAdapter = new LeaderboardAdapter(images, usernames, ranks, scores, UI.getContext());
             m_leaderboardView.setAdapter(m_leaderboardAdapter);

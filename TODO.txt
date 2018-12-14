@@ -1,6 +1,4 @@
 Jari:
-- Leaderboard gebruik namen van gebruiker en friends
-- Login en logout + Scherm dat komt als je uitgelogd bent waar je kan kiezen tussen gast en inloggen
 - Mini games basis look laten zien => zoek en scan borden, oefen routen (navigatie), 2 dezelfde zoeken
 
 Enes:
