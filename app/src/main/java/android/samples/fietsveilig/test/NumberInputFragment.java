@@ -1,12 +1,14 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.samples.fietsveilig.R;
+import android.samples.fietsveilig.test.TestActivity;
+import android.samples.fietsveilig.test.TestActivityFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 public class NumberInputFragment extends TestActivityFragment {
@@ -16,6 +18,12 @@ public class NumberInputFragment extends TestActivityFragment {
     private View m_ui;
     private int m_min = 0;
     private int m_max = 10;
+    private int m_score = 0;
+
+    @Override
+    public int getScore() {
+        return m_score;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,6 +98,7 @@ public class NumberInputFragment extends TestActivityFragment {
             public void onClick(View v) {
                 int val = Integer.parseInt(textview_number.getText().toString());
                 if (val == m_correctAnswer){
+                    m_score = 1;
                     lblFeedback.setText("Correct!");
                     lblFeedback.setTextColor(getResources().getColor(R.color.correct));
                 }
@@ -110,7 +119,7 @@ public class NumberInputFragment extends TestActivityFragment {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: find a way to open the next test fragment
+                ((TestActivity)getActivity()).setNextTestActivity();
             }
         });
     }

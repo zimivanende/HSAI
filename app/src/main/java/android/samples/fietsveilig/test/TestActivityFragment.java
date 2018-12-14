@@ -1,5 +1,6 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.test;
 
+import android.samples.fietsveilig.R;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,6 +31,9 @@ public abstract class TestActivityFragment extends Fragment {
 
     // Small explanation of what the user needs to do
     abstract public String getHint();
+
+    // to retrieve the score the user got on the test
+    abstract public int getScore();
 
 }
 

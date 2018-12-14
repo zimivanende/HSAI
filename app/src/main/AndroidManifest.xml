@@ -38,7 +38,7 @@
                 android:value="android.samples.fietsveilig.MainActivity" />
         </activity>
         <activity
-            android:name=".TestActivity"
+            android:name=".test.TestActivity"
             android:label="@string/title_activity_test"
             android:parentActivityName=".MainActivity">
             <meta-data

@@ -5,8 +5,6 @@ Jari:
 
 Enes:
 - Challenges content invullen
-- Test volgende vraag knop werkend maken
-- Test einde score scherm
 - add friends
 
 Zimi:

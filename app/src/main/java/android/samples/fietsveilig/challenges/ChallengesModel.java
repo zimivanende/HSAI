@@ -1,4 +1,4 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.challenges;
 
 import java.util.Vector;
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".profile.ProfileFragment">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -26,7 +26,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
-            android:text="@string/progress_overall"
+            android:text="@string/progress_progress"
             android:textSize="24sp"
             android:textColor="@color/textOnWhite"
             app:layout_constraintEnd_toEndOf="parent"

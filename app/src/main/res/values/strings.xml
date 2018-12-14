@@ -28,7 +28,7 @@
     <string name="profile_name">Edgar</string>
     <string name="profile_title">Ervaren</string>
     <string name="profile_next_title">Expert</string>
-    <string name="progress_overall">Algeheel</string>
+    <string name="progress_progress">Voortgang</string>
     <string name="progress_scores">Scores</string>
     <string name="progress_scores_best">Beste score</string>
     <string name="progress_average_score">Gemiddelde score</string>

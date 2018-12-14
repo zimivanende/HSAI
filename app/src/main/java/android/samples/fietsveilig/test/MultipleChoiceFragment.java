@@ -1,7 +1,10 @@
-package android.samples.fietsveilig;
+package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.samples.fietsveilig.R;
+import android.samples.fietsveilig.test.TestActivity;
+import android.samples.fietsveilig.test.TestActivityFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +15,15 @@ public class MultipleChoiceFragment extends TestActivityFragment {
     private String m_explanation;
     private int m_correctAnswer = 1;
     private View m_ui;
+    private int m_score = 0;
+
+    @Override
+    public int getScore() {
+        return m_score;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO find a way to set hint and explanation
         // TODO find a way to set m_correctAnswer
         View UI = inflater.inflate(R.layout.fragment_test_multiple_choice, container, false);
         m_ui = UI;
@@ -23,11 +31,59 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         initButtons();
 
         // just for test
-        m_hint = "choose one of the answers below";
+        m_hint = "Kies een van de antwoorden van onder.";
         m_explanation = "bla bla bla";
         m_correctAnswer = 4;
 
         return UI;
+    }
+
+    /**
+     * Sets the explanation shown by the fragment
+     * @param explanation
+     */
+    public void setExplanation(String explanation){
+        m_explanation = explanation;
+    }
+
+    /**
+     * Sets the first answer the user can select
+     * @param answer1
+     */
+    public void setAnswer1(String answer1){
+        ((Button)m_ui.findViewById(R.id.button_answer1)).setText(answer1);
+    }
+
+    /**
+     * Sets the first answer the user can select
+     * @param answer2
+     */
+    public void setAnswer2(String answer2){
+        ((Button)m_ui.findViewById(R.id.button_answer2)).setText(answer2);
+    }
+
+    /**
+     * Sets the first answer the user can select
+     * @param answer3
+     */
+    public void setAnswer3(String answer3){
+        ((Button)m_ui.findViewById(R.id.button_answer3)).setText(answer3);
+    }
+
+    /**
+     * Sets the first answer the user can select
+     * @param answer4
+     */
+    public void setAnswer4(String answer4){
+        ((Button)m_ui.findViewById(R.id.button_answer4)).setText(answer4);
+    }
+
+    /**
+     * Sets the number of the correct answer
+     * @param correctAnswer: the number of the answer that is correct
+     */
+    public void setCorrectAnswer(int correctAnswer){
+        m_correctAnswer = correctAnswer;
     }
 
     /**
@@ -53,6 +109,8 @@ public class MultipleChoiceFragment extends TestActivityFragment {
                 if (m_correctAnswer != 1){
                     button1.setBackgroundColor(getResources().getColor(R.color.incorrect));
                 }
+                else
+                    m_score = 1;
                 setAfterAnswerUI();
             }
         });
@@ -63,6 +121,8 @@ public class MultipleChoiceFragment extends TestActivityFragment {
                 if (m_correctAnswer != 2){
                     button2.setBackgroundColor(getResources().getColor(R.color.incorrect));
                 }
+                else
+                    m_score = 1;
                 setAfterAnswerUI();
             }
         });
@@ -73,6 +133,8 @@ public class MultipleChoiceFragment extends TestActivityFragment {
                 if (m_correctAnswer != 3){
                     button3.setBackgroundColor(getResources().getColor(R.color.incorrect));
                 }
+                else
+                    m_score = 1;
                 setAfterAnswerUI();
             }
         });
@@ -83,6 +145,8 @@ public class MultipleChoiceFragment extends TestActivityFragment {
                 if (m_correctAnswer != 4){
                     button4.setBackgroundColor(getResources().getColor(R.color.incorrect));
                 }
+                else
+                    m_score = 1;
                 setAfterAnswerUI();
             }
         });
@@ -106,7 +170,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: find a way to open the next test fragment
+                ((TestActivity)getActivity()).setNextTestActivity();
             }
         });
     }
