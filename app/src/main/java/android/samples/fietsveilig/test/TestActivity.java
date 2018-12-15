@@ -111,7 +111,7 @@ public class TestActivity extends AppCompatActivity {
                 "Ze zijn b.v. niet verplicht het fietspad te gebruiken en ze mogen met 2 naast elkaar blijven rijden" +
                 " op de rijbaan.\nVoor meer info bekijk even de theorie.");
 
-        m_fietspaden.setQuestion("•\tWelk van deze foto is een fietssuggestiestrook?");
+        m_fietspaden.setQuestion("Welk van deze foto is een fietssuggestiestrook?");
         m_fietspaden.setAnswer1(R.drawable.fietspadantw1);
         m_fietspaden.setAnswer2(R.drawable.fietspadantw2);
         m_fietspaden.setAnswer3(R.drawable.fietspadantw3);

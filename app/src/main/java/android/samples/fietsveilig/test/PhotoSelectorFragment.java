@@ -30,7 +30,7 @@ public class PhotoSelectorFragment extends TestActivityFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View UI = inflater.inflate(R.layout.fragment_test_multiple_choice, container, false);
+        View UI = inflater.inflate(R.layout.fragment_test_photo_selector, container, false);
         m_ui = UI;
 
         // set the text of the view elements
