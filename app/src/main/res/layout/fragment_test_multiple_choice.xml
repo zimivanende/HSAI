@@ -37,25 +37,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="answer1"
-        app:layout_constraintBottom_toTopOf="@+id/button_answer2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_question" />
 
     <Button
         android:id="@+id/button_answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="answer2"
-        app:layout_constraintBottom_toTopOf="@+id/button_answer3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_answer1" />
 
     <Button
         android:id="@+id/button_answer3"
@@ -63,24 +64,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="answer3"
-        app:layout_constraintBottom_toTopOf="@+id/button_answer4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_answer4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="answer4"
-        app:layout_constraintBottom_toTopOf="@+id/button_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_answer2" />
 
     <Button
         android:id="@+id/button_next"
@@ -89,7 +77,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Volgende vraag"
-        android:visibility="gone"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/button_answer3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
