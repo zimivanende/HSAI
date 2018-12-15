@@ -26,14 +26,14 @@ public class TestActivity extends AppCompatActivity {
 
         // set first quistion as starting fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
-
+        setQuestions();
     }
 
     private void setQuestions(){
         m_voorrangZebra.setQuestion("Voorrang op zebrapaden is enkel boorbehouden voor?");
         m_voorrangZebra.setAnswer1("Fietsers");
-        m_voorrangZebra.setAnswer1("Bromfietsers");
-        m_voorrangZebra.setAnswer1("Voetgangers");
+        m_voorrangZebra.setAnswer2("Bromfietsers");
+        m_voorrangZebra.setAnswer3("Voetgangers");
     }
 
     private void showMessagePopup(String message){
