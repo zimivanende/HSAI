@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MultipleChoiceFragment extends TestActivityFragment {
     private String m_hint;
@@ -29,11 +30,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         m_ui = UI;
 
         initButtons();
-
-        // just for test
-        m_hint = "Kies een van de antwoorden van onder.";
-        m_explanation = "bla bla bla";
-        m_correctAnswer = 4;
 
         return UI;
     }
@@ -72,10 +68,10 @@ public class MultipleChoiceFragment extends TestActivityFragment {
 
     /**
      * Sets the first answer the user can select
-     * @param answer4
+     * @param question
      */
-    public void setAnswer4(String answer4){
-        ((Button)m_ui.findViewById(R.id.button_answer4)).setText(answer4);
+    public void setQuestion(String question){
+        ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(question);
     }
 
     /**
@@ -94,7 +90,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         final Button button1 = (Button)m_ui.findViewById(R.id.button_answer1);
         final Button button2 = (Button)m_ui.findViewById(R.id.button_answer2);
         final Button button3 = (Button)m_ui.findViewById(R.id.button_answer3);
-        final Button button4 = (Button)m_ui.findViewById(R.id.button_answer4);
         final Button buttonNext = (Button)m_ui.findViewById(R.id.button_next);
         final Button buttonHint = (Button)m_ui.findViewById(R.id.button_hint);
         final Button buttonExplanation = (Button)m_ui.findViewById(R.id.button_explanation);
@@ -132,18 +127,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
             public void onClick(View v) {
                 if (m_correctAnswer != 3){
                     button3.setBackgroundColor(getResources().getColor(R.color.incorrect));
-                }
-                else
-                    m_score = 1;
-                setAfterAnswerUI();
-            }
-        });
-
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (m_correctAnswer != 4){
-                    button4.setBackgroundColor(getResources().getColor(R.color.incorrect));
                 }
                 else
                     m_score = 1;
@@ -200,9 +183,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
             case 3:
                 ((Button)m_ui.findViewById(R.id.button_answer3)).setBackgroundColor(getResources().getColor(R.color.correct));
                 break;
-            case 4:
-                ((Button)m_ui.findViewById(R.id.button_answer4)).setBackgroundColor(getResources().getColor(R.color.correct));
-                break;
         }
     }
 
@@ -211,7 +191,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         ((Button)m_ui.findViewById(R.id.button_answer1)).setClickable(false);
         ((Button)m_ui.findViewById(R.id.button_answer2)).setClickable(false);
         ((Button)m_ui.findViewById(R.id.button_answer3)).setClickable(false);
-        ((Button)m_ui.findViewById(R.id.button_answer4)).setClickable(false);
     }
 
     // a messagebox is shown with the given string as "information"

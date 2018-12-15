@@ -14,6 +14,7 @@ public class TestActivity extends AppCompatActivity {
     private TestActivityFragment m_currentQuestion = null;
     private TestResultFragment m_resultFragment; // TODO
     private int m_accumulatedScore = 0;
+    private MultipleChoiceFragment m_voorrangZebra = new MultipleChoiceFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +22,24 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         m_resultFragment = new TestResultFragment();
+        m_testFragments.add(m_voorrangZebra);
         m_testFragments.add(new NumberInputFragment());
-        m_testFragments.add(new MultipleChoiceFragment());
         m_currentQuestion = m_testFragments.get(0);
+
+        //setQuestions();
 
         // set first quistion as starting fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
+
+    }
+
+    private void setQuestions(){
+        m_voorrangZebra.setQuestion("Voorrang op zebrapaden is enkel boorbehouden voor?");
+        m_voorrangZebra.setAnswer1("Fietsers");
+        m_voorrangZebra.setAnswer2("Bromfietsers");
+        m_voorrangZebra.setAnswer3("Voetgangers");
+        m_voorrangZebra.setCorrectAnswer(3);
+
 
     }
 
