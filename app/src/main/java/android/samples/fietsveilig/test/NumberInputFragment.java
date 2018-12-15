@@ -9,9 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NumberInputFragment extends TestActivityFragment {
+    public void setM_hint(String m_hint) {
+        this.m_hint = m_hint;
+    }
+
+    public void setM_explanation(String m_explanation) {
+        this.m_explanation = m_explanation;
+    }
+
     private String m_hint = "Gebruik de + en - knoppen om het nummer te verhogen of te verlagen.";
     private String m_explanation = "uitleg";
     private String m_question = "vraag";
@@ -20,6 +29,7 @@ public class NumberInputFragment extends TestActivityFragment {
     private int m_min = 0;
     private int m_max = 10;
     private int m_score = 0;
+    private int m_image = 0;
 
     @Override
     public int getScore() {
@@ -35,11 +45,18 @@ public class NumberInputFragment extends TestActivityFragment {
 
         // set the text of the question view
         ((TextView)m_ui.findViewById(R.id.text_view_question_number)).setText(m_question);
+        ((ImageView)m_ui.findViewById(R.id.image)).setImageResource(m_image);
+
 
         // initialize listeners
         initButtons();
 
         return UI;
+    }
+
+    public void setImage(int imageId)
+    {
+        m_image = imageId;
     }
 
     /**
