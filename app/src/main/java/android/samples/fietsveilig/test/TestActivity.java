@@ -44,6 +44,7 @@ public class TestActivity extends AppCompatActivity {
         m_voorrangZebra.setAnswer2("Bromfietsers");
         m_voorrangZebra.setAnswer3("Voetgangers");
         m_voorrangZebra.setCorrectAnswer(3);
+        m_voorrangZebra.setImage(R.drawable.oversteken);
 
     }
 
