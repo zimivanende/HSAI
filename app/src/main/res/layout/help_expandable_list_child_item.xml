@@ -8,9 +8,10 @@
         android:id="@+id/help_child_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="17sp"
+        android:layout_marginLeft="5dp"
         android:padding="5dp"
+        android:textAlignment="center"
         android:textColor="@color/textOnWhite"
-        android:layout_marginLeft="5dp"/>
+        android:textSize="17sp" />
 
 </LinearLayout>
