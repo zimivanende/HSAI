@@ -2,8 +2,6 @@ Jari:
 - Mini games basis look laten zien => zoek en scan borden, oefen routen (navigatie), 2 dezelfde zoeken
 
 Enes:
-- Challenges content invullen
-- add friends
 
 Zimi:
 - Test content invullen

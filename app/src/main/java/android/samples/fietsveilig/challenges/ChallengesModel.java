@@ -12,10 +12,10 @@ public class ChallengesModel {
         Vector<String> daily = new Vector<String>();
 
         // TODO: add data
-        daily.add("Complete 1 quiz");
-        daily.add("Complete a section of theory that has easy difficulty");
-        daily.add("Complete 1 test");
-        daily.add("Complete all daily challenges");
+        daily.add("Oefen de theorie 1 keer.");
+        daily.add("Haal een minimale score van 3/10 op oefen.");
+        daily.add("Speel een minigame.");
+        daily.add("Voltooi alle dagelijkse uitdagingen.");
 
         return daily;
     }
@@ -28,9 +28,9 @@ public class ChallengesModel {
         Vector<String> weekly = new Vector<String>();
 
         // TODO: add data
-        weekly.add("Complete 5 quizzes");
-        weekly.add("Get a score higher than 9/10 on a test of easy difficulty");
-        weekly.add("Pass on a test of normal difficulty");
+        weekly.add("Oefen de theorie 10 keer");
+        weekly.add("Haal een minimale score van 8/10 op oefen.");
+        weekly.add("Haal een hogere score in een van de spelmodi (oefen of minigames) dan een vriend.");
 
         return weekly;
     }

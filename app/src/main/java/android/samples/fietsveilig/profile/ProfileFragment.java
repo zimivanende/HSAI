@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.samples.fietsveilig.R;
-import android.samples.fietsveilig.profile.FriendsModel;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -17,13 +16,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.support.design.widget.Snackbar;
 
 import java.util.Vector;
 
@@ -138,7 +139,7 @@ public class ProfileFragment extends Fragment {
             View friendsContainer = inflater.inflate(R.layout.fragment_profile_friends, container, false);
 
             ListView lv = (ListView) friendsContainer.findViewById(R.id.friendsListView);
-            FriendsViewAdapter friendsAdapter = new FriendsViewAdapter(getActivity(), android.R.layout.simple_list_item_1);
+            FriendsViewAdapter friendsAdapter = new FriendsViewAdapter(getActivity(), android.R.layout.simple_list_item_1, friendsContainer, this);
             lv.setAdapter(friendsAdapter);
 
             m_adapter = friendsAdapter;
@@ -155,13 +156,22 @@ public class ProfileFragment extends Fragment {
         public static class FriendsViewAdapter extends ArrayAdapter<String> {
             private Context m_context;
             private FriendsViewAdapter m_friendsAdapter = this;
+            private View m_friendsUi;
+            private Fragment m_friendsFragment;
 
-            public FriendsViewAdapter(Context context, int resource) {
+            public FriendsViewAdapter(Context context, int resource, View friendsContainer, Fragment friendsFragment) {
                 super(context, resource);
                 m_context= context;
+                m_friendsUi = friendsContainer;
+                m_friendsFragment = friendsFragment;
             }
 
             public View getView(final int position, View convertView, ViewGroup parent){
+                if (position == 0)
+                    return getSearchBar(convertView);
+
+                final int newPos = position - 1;
+
                 if (convertView == null){
                     LayoutInflater li = (LayoutInflater) m_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     convertView = li.inflate(R.layout.profile_friends_list_item, null);
@@ -169,7 +179,7 @@ public class ProfileFragment extends Fragment {
 
                 // now find the textView, set its text and return the whole layout where it is situated
                 final TextView txtHeader = (TextView) convertView.findViewById(R.id.friend_name);
-                txtHeader.setText(FriendsModel.getFriend(position));
+                txtHeader.setText(FriendsModel.getFriend(newPos));
 
                 // item gets deleted when corresponding delete button is clicked
                 Button btnDelete = (Button) convertView.findViewById(R.id.deleteFriend);
@@ -180,14 +190,14 @@ public class ProfileFragment extends Fragment {
 
                         new AlertDialog.Builder(m_context)
                                 .setTitle("Confirmation")
-                                .setMessage("Ben je zeker dat je " + FriendsModel.getFriend(position) + " van je vriendenlijst wilt verwijderen?")
+                                .setMessage("Ben je zeker dat je " + FriendsModel.getFriend(newPos) + " van je vriendenlijst wilt verwijderen?")
                                 .setIcon(android.R.drawable.ic_dialog_alert)
 
                                 // when yes is clicked, the selected item is going to be deleted
                                 .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        FriendsModel.remove(position);
+                                        FriendsModel.remove(newPos);
                                         m_friendsAdapter.notifyDataSetChanged();
                                     }
                                 })
@@ -200,12 +210,97 @@ public class ProfileFragment extends Fragment {
                 return convertView;
             }
 
+            private View getSearchBar(View convertView){
+                if (convertView == null){
+                    LayoutInflater li = (LayoutInflater) m_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    convertView = li.inflate(R.layout.profile_friends_list_add_friend_layout, null);
+                }
+
+                // get views
+                final EditText input = (EditText) convertView.findViewById(R.id.editText_friend_name);
+                final Button btnAddFriend = (Button) convertView.findViewById(R.id.button_add_friend);
+                Button btnAddFriendConfirm = (Button) convertView.findViewById(R.id.button_add_friend_confirm);
+                Button btnCancel = (Button) convertView.findViewById(R.id.button_cancel);
+                final LinearLayout buttonsLayout = (LinearLayout) convertView.findViewById(R.id.layout_buttons);
+
+
+                // attack click listeners
+                // addfriend button makes the interface for input username visible
+                btnAddFriend.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // make all other elements visible
+                        buttonsLayout.setVisibility(View.VISIBLE);
+                        input.setVisibility(View.VISIBLE);
+
+                        // make the button itself invisible
+                        btnAddFriend.setVisibility(View.GONE);
+                    }
+                });
+
+                // this button "sends a notification" to the user with the given username
+                btnAddFriendConfirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String name = input.getText().toString();
+                        String msg;
+
+                        if (!FriendsModel.isFriend(name) && FriendsModel.exists(name)){
+                            FriendsModel.addNonFriendAsFriend(name);
+                            notifyDataSetChanged();
+                            input.setText("");
+                            msg = name + " is nu je vriend.";
+                        }
+                        else{
+
+                            if (FriendsModel.exists(name)){
+                                // is already a friend
+                                msg = name + " is al je vriend.";
+                            }
+                            else{
+                                // doesn't exists
+                                msg = "Er bestaat geen gebruiker met " + name + " als gebruikersnaam";
+                            }
+                        }
+                        InputMethodManager inputManager = (InputMethodManager)  m_friendsFragment.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                        inputManager.hideSoftInputFromWindow(m_friendsFragment.getActivity().getCurrentFocus().getWindowToken(),
+                                InputMethodManager.HIDE_NOT_ALWAYS);
+
+                        Snackbar.make(m_friendsUi, msg, Snackbar.LENGTH_LONG)
+                                .setAction("Ok", null)
+                                .show();
+                    }
+                });
+
+                // this buttons hides the element for input and submission and displays the initial button
+                btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // make all other elements visible
+                        buttonsLayout.setVisibility(View.GONE);
+                        input.setVisibility(View.GONE);
+
+                        // make the button itself invisible
+                        btnAddFriend.setVisibility(View.VISIBLE);
+
+                        // dont forget to clear out the text
+                        input.setText("");
+                    }
+                });
+
+                return convertView;
+            }
+
             public int getCount(){
-                return FriendsModel.getCount();
+                return FriendsModel.getCount() + 1;
             }
 
             public String getItem(int pos){
-                return FriendsModel.getFriend(pos);
+                if (pos > 0)
+                    return FriendsModel.getFriend(pos-1);
+                else
+                    return "";
             }
 
             public boolean isEnabled(int position){
