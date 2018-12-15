@@ -17,6 +17,8 @@ public class MultipleChoiceFragment extends TestActivityFragment {
     private int m_correctAnswer = 1;
     private View m_ui;
     private int m_score = 0;
+    private String[] m_answers = new String[3];
+    private String m_question = "question";
 
     @Override
     public int getScore() {
@@ -25,9 +27,14 @@ public class MultipleChoiceFragment extends TestActivityFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO find a way to set m_correctAnswer
         View UI = inflater.inflate(R.layout.fragment_test_multiple_choice, container, false);
         m_ui = UI;
+
+        // set the text of the view elements
+        ((Button)m_ui.findViewById(R.id.button_answer1)).setText(m_answers[0]);
+        ((Button)m_ui.findViewById(R.id.button_answer2)).setText(m_answers[1]);
+        ((Button)m_ui.findViewById(R.id.button_answer3)).setText(m_answers[2]);
+        ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(m_question);
 
         initButtons();
 
@@ -47,7 +54,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
      * @param answer1
      */
     public void setAnswer1(String answer1){
-        ((Button)m_ui.findViewById(R.id.button_answer1)).setText(answer1);
+        m_answers[0] = answer1;
     }
 
     /**
@@ -55,7 +62,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
      * @param answer2
      */
     public void setAnswer2(String answer2){
-        ((Button)m_ui.findViewById(R.id.button_answer2)).setText(answer2);
+        m_answers[1] = answer2;
     }
 
     /**
@@ -63,7 +70,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
      * @param answer3
      */
     public void setAnswer3(String answer3){
-        ((Button)m_ui.findViewById(R.id.button_answer3)).setText(answer3);
+        m_answers[2] = answer3;
     }
 
     /**
@@ -71,7 +78,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
      * @param question
      */
     public void setQuestion(String question){
-        ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(question);
+        m_question = question;
     }
 
     /**

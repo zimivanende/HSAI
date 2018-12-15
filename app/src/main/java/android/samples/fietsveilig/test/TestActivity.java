@@ -7,30 +7,35 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.Vector;
 
-//TODO: use ic_info_outline_black as button for information about the current test (question)
-
 public class TestActivity extends AppCompatActivity {
     private Vector<TestActivityFragment> m_testFragments = new Vector<>();
     private TestActivityFragment m_currentQuestion = null;
-    private TestResultFragment m_resultFragment; // TODO
+    private TestResultFragment m_resultFragment;
     private int m_accumulatedScore = 0;
-    private MultipleChoiceFragment m_voorrangZebra = new MultipleChoiceFragment();
+    private MultipleChoiceFragment m_voorrangZebra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        // create the fragments
         m_resultFragment = new TestResultFragment();
+        m_voorrangZebra = new MultipleChoiceFragment();
+
+        // add the fragments
         m_testFragments.add(m_voorrangZebra);
         m_testFragments.add(new NumberInputFragment());
+
+        // set current question
         m_currentQuestion = m_testFragments.get(0);
 
-        //setQuestions();
+        // set question content
+        setQuestions();
 
         // set first quistion as starting fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
-        setQuestions();
+
     }
 
     private void setQuestions(){
@@ -39,7 +44,6 @@ public class TestActivity extends AppCompatActivity {
         m_voorrangZebra.setAnswer2("Bromfietsers");
         m_voorrangZebra.setAnswer3("Voetgangers");
         m_voorrangZebra.setCorrectAnswer(3);
-
 
     }
 

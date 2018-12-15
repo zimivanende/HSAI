@@ -12,8 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class NumberInputFragment extends TestActivityFragment {
-    private String m_hint;
-    private String m_explanation;
+    private String m_hint = "Gebruik de + en - knoppen om het nummer te verhogen of te verlagen.";
+    private String m_explanation = "uitleg";
+    private String m_question = "vraag";
     private int m_correctAnswer;
     private View m_ui;
     private int m_min = 0;
@@ -32,14 +33,38 @@ public class NumberInputFragment extends TestActivityFragment {
         View UI = inflater.inflate(R.layout.fragment_test_number_input, container, false);
         m_ui = UI;
 
+        // set the text of the question view
+        ((TextView)m_ui.findViewById(R.id.text_view_question_number)).setText(m_question);
+
+        // initialize listeners
         initButtons();
 
-        // just for test
-        m_hint = "choose one of the answers below";
-        m_explanation = "bla bla bla";
-        m_correctAnswer = 2;
-
         return UI;
+    }
+
+    /**
+     * Sets the first answer the user can select
+     * @param question
+     */
+    public void setQuestion(String question){
+        m_question = question;
+    }
+
+    /**
+     * Sets the explanation shown by the fragment
+     * @param explanation
+     */
+    public void setExplanation(String explanation){
+        m_explanation = explanation;
+    }
+
+
+    /**
+     * Sets the number of the correct answer
+     * @param correctAnswer: the number of the answer that is correct
+     */
+    public void setCorrectAnswer(int correctAnswer){
+        m_correctAnswer = correctAnswer;
     }
 
     /**
@@ -132,7 +157,6 @@ public class NumberInputFragment extends TestActivityFragment {
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setNeutralButton("ok", null).show();
     }
-
 
     @Override
     public String getExplanation() {
