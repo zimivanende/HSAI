@@ -30,7 +30,7 @@ public class TestActivity extends AppCompatActivity {
 
         // set first quistion as starting fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
-
+        setQuestions();
     }
 
     private void setQuestions(){
