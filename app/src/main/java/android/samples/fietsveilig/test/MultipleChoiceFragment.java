@@ -1,6 +1,7 @@
 package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.samples.fietsveilig.R;
 import android.samples.fietsveilig.test.TestActivity;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MultipleChoiceFragment extends TestActivityFragment {
@@ -19,6 +21,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
     private int m_score = 0;
     private String[] m_answers = new String[3];
     private String m_question = "question";
+    private int m_image = 0;
 
     @Override
     public int getScore() {
@@ -35,6 +38,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         ((Button)m_ui.findViewById(R.id.button_answer2)).setText(m_answers[1]);
         ((Button)m_ui.findViewById(R.id.button_answer3)).setText(m_answers[2]);
         ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(m_question);
+        ((ImageView)m_ui.findViewById(R.id.theorie_image)).setImageResource(m_image);
 
         initButtons();
 
@@ -87,6 +91,12 @@ public class MultipleChoiceFragment extends TestActivityFragment {
      */
     public void setCorrectAnswer(int correctAnswer){
         m_correctAnswer = correctAnswer;
+    }
+
+
+    public void setImage(int imageId)
+    {
+       m_image = imageId;
     }
 
     /**
