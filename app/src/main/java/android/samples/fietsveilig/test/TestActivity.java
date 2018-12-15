@@ -18,6 +18,7 @@ public class TestActivity extends AppCompatActivity {
     private MultipleChoiceFragment m_borden;
     private MultipleChoiceFragment m_benaming;
     private NumberInputFragment m_number;
+    private PhotoSelectorFragment m_fietspaden;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class TestActivity extends AppCompatActivity {
         m_borden = new MultipleChoiceFragment();
         m_benaming = new MultipleChoiceFragment();
         m_number = new NumberInputFragment();
+        m_fietspaden = new PhotoSelectorFragment();
 
         // add the fragments
         m_testFragments.add(m_voorrangZebra);
@@ -40,6 +42,7 @@ public class TestActivity extends AppCompatActivity {
         m_testFragments.add(m_borden);
         m_testFragments.add(m_benaming);
         m_testFragments.add(m_number);
+        m_testFragments.add(m_fietspaden);
 
         // set current question
         m_currentQuestion = m_testFragments.get(0);
@@ -107,6 +110,17 @@ public class TestActivity extends AppCompatActivity {
         m_number.setExplanation("Voor een groep fietsers van minstens 15 deelnemers zijn afwijkende regels voorzien. " +
                 "Ze zijn b.v. niet verplicht het fietspad te gebruiken en ze mogen met 2 naast elkaar blijven rijden" +
                 " op de rijbaan.\nVoor meer info bekijk even de theorie.");
+
+        m_fietspaden.setQuestion("•\tWelk van deze foto is een fietssuggestiestrook?");
+        m_fietspaden.setAnswer1(R.drawable.fietspadantw1);
+        m_fietspaden.setAnswer2(R.drawable.fietspadantw2);
+        m_fietspaden.setAnswer3(R.drawable.fietspadantw3);
+        m_fietspaden.setCorrectAnswer(2);
+        m_fietspaden.setM_hint("Welke lijkt het minst \"verlplicht\"");
+        m_fietspaden.setExplanation("Fietssuggestiestrook bevindt zich " +
+                "meestal langs weerszijden van de rijbaan " +
+                "wanneer deze niet breed genoeg " +
+                "is voor een echt fietspad.\nVoor meer info bekijk even de theorie.");
     }
 
     private void showMessagePopup(String message){
