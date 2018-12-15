@@ -33,6 +33,7 @@
     <string name="progress_scores_best">Beste score</string>
     <string name="progress_average_score">Gemiddelde score</string>
     <string name="progress_last_score">Laatste score</string>
-
+    <string name="requests_accept">Accepteer</string>
+    <string name="requests_reject">Weiger</string>
 
 </resources>

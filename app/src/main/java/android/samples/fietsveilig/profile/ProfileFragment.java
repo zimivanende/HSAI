@@ -23,6 +23,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Vector;
 
 public class ProfileFragment extends Fragment {
@@ -76,7 +78,7 @@ public class ProfileFragment extends Fragment {
 
     // ######################### PROGRESS FRAGMENT #########################
     public static class ProgressFragment extends Fragment{
-        private static final String m_title = "Progress";
+        private static final String m_title = "Vooruitgang";
 
         /**
          * When fragment is being created
@@ -119,6 +121,7 @@ public class ProfileFragment extends Fragment {
     // ######################### FRIENDS FRAGMENT #########################
     public static class FriendsFragment extends Fragment{
         private static final String m_title = "Friends";
+        private static FriendsViewAdapter m_adapter;
 
         /**
          * When fragment is being created
@@ -138,12 +141,15 @@ public class ProfileFragment extends Fragment {
             FriendsViewAdapter friendsAdapter = new FriendsViewAdapter(getActivity(), android.R.layout.simple_list_item_1);
             lv.setAdapter(friendsAdapter);
 
+            m_adapter = friendsAdapter;
             return friendsContainer;
         }
 
         public static String getTitle(){
             return m_title;
         }
+
+        public static FriendsViewAdapter getAdapter(){ return m_adapter; }
 
         // this is the class that acts as an intermediate between the friends listview and the friends model
         public static class FriendsViewAdapter extends ArrayAdapter<String> {
@@ -205,6 +211,105 @@ public class ProfileFragment extends Fragment {
             public boolean isEnabled(int position){
                 return true;
             }
+
+            public FriendsViewAdapter getInstance(){ return this; }
+        }
+    }
+
+    // ######################### FRIENDS FRAGMENT #########################
+    //TODO this class crashes
+    public static class RequestsFragment extends Fragment {
+        private static final String m_title = "Verzoeken";
+
+        /**
+         * When fragment is being created
+         */
+        public void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+        }
+
+        /**
+         * The friend fragment's UI
+         */
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View requestsContainer = inflater.inflate(R.layout.fragment_profile_requests, container, false);
+
+            ListView lv = (ListView) requestsContainer.findViewById(R.id.requests_listView);
+            RequestsViewAdapter requestsViewAdapter = new RequestsViewAdapter(getActivity(), android.R.layout.simple_list_item_1);
+            lv.setAdapter(requestsViewAdapter);
+
+            return requestsContainer;
+        }
+
+        public static String getTitle(){
+            return m_title;
+        }
+
+        // this is the class that acts as an intermediate between the friends listview and the friends model
+        public static class RequestsViewAdapter extends ArrayAdapter<String> {
+            private Context m_context;
+            private RequestsFragment.RequestsViewAdapter m_requestsAdapter = this;
+
+            public RequestsViewAdapter(Context context, int resource) {
+                super(context, resource);
+                m_context= context;
+            }
+
+            public View getView(final int position, View convertView, ViewGroup parent){
+                if (convertView == null){
+                    LayoutInflater li = (LayoutInflater) m_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    convertView = li.inflate(R.layout.profile_requests_list_item, null);
+                }
+
+                // now find the textView and button, set its text and set the click listeners then
+                // return the whole layout where it is situated
+                TextView txtRequest = (TextView)convertView.findViewById(R.id.textview_request);
+                Button btnAccept = (Button) convertView.findViewById(R.id.button_accept);
+                Button btnReject = (Button) convertView.findViewById(R.id.button_reject);
+
+                String text = RequestsModel.getRequest(position);
+
+                txtRequest.setText(text);
+
+                // accept friend
+                btnAccept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // delete button is clicked, now ask for a confirmation
+                        FriendsModel.add(RequestsModel.getRequestSender(position)); // add to friends list
+                        RequestsModel.remove(position); // remove from request
+                        m_requestsAdapter.notifyDataSetChanged(); // notify requests view
+                        FriendsFragment.getAdapter().notifyDataSetChanged(); // notify friends view
+                    }
+                });
+
+                // reject user
+                btnReject.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // delete button is clicked, now ask for a confirmation
+                        RequestsModel.remove(position); // remove from request
+                        m_requestsAdapter.notifyDataSetChanged(); // notify requests view
+                    }
+                });
+
+                return convertView;
+            }
+
+            public int getCount(){
+                return RequestsModel.getCount();
+            }
+
+            public String getItem(int pos){
+                return FriendsModel.getFriend(pos);
+            }
+
+            public boolean isEnabled(int position){
+                return true;
+            }
+
+            public RequestsViewAdapter getInstance(){ return this; }
         }
     }
 
@@ -226,6 +331,9 @@ public class ProfileFragment extends Fragment {
 
             m_fragments.add(new FriendsFragment());
             m_fragmentsTitles.add("Vrienden");
+
+            m_fragments.add(new RequestsFragment());
+            m_fragmentsTitles.add("Verzoeken");
         }
 
         @Override

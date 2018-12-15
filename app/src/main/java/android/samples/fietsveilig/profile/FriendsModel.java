@@ -35,6 +35,10 @@ public class FriendsModel {
         m_friends.remove(pos);
     }
 
+    public static void add (String name){
+        m_friends.add(name);
+    }
+
     public static String getFriend(int pos){
         return m_friends.get(pos);
     }
