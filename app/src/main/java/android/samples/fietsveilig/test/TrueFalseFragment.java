@@ -1,11 +1,8 @@
 package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.samples.fietsveilig.R;
-import android.samples.fietsveilig.test.TestActivity;
-import android.samples.fietsveilig.test.TestActivityFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MultipleChoiceFragment extends TestActivityFragment {
+public class TrueFalseFragment extends TestActivityFragment {
     public void setM_hint(String m_hint) {
         this.m_hint = m_hint;
     }
@@ -34,13 +31,12 @@ public class MultipleChoiceFragment extends TestActivityFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View UI = inflater.inflate(R.layout.fragment_test_multiple_choice, container, false);
+        View UI = inflater.inflate(R.layout.fragment_test_true_false, container, false);
         m_ui = UI;
 
         // set the text of the view elements
         ((Button)m_ui.findViewById(R.id.button_answer1)).setText(m_answers[0]);
         ((Button)m_ui.findViewById(R.id.button_answer2)).setText(m_answers[1]);
-        ((Button)m_ui.findViewById(R.id.button_answer3)).setText(m_answers[2]);
         ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(m_question);
         ((ImageView)m_ui.findViewById(R.id.image)).setImageResource(m_image);
 
@@ -73,13 +69,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         m_answers[1] = answer2;
     }
 
-    /**
-     * Sets the first answer the user can select
-     * @param answer3
-     */
-    public void setAnswer3(String answer3){
-        m_answers[2] = answer3;
-    }
 
     /**
      * Sets the first answer the user can select
@@ -110,7 +99,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         // set onclick listeners
         final Button button1 = (Button)m_ui.findViewById(R.id.button_answer1);
         final Button button2 = (Button)m_ui.findViewById(R.id.button_answer2);
-        final Button button3 = (Button)m_ui.findViewById(R.id.button_answer3);
         final Button buttonNext = (Button)m_ui.findViewById(R.id.button_next);
         final Button buttonHint = (Button)m_ui.findViewById(R.id.button_hint);
         final Button buttonExplanation = (Button)m_ui.findViewById(R.id.button_explanation);
@@ -143,17 +131,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
             }
         });
 
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (m_correctAnswer != 3){
-                    button3.setBackgroundColor(getResources().getColor(R.color.incorrect));
-                }
-                else
-                    m_score = 1;
-                setAfterAnswerUI();
-            }
-        });
 
         // when a hint or explanation button is clicked, the corresponding information is given
         buttonExplanation.setOnClickListener(new View.OnClickListener() {
@@ -201,9 +178,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
             case 2:
                 ((Button)m_ui.findViewById(R.id.button_answer2)).setBackgroundColor(getResources().getColor(R.color.correct));
                 break;
-            case 3:
-                ((Button)m_ui.findViewById(R.id.button_answer3)).setBackgroundColor(getResources().getColor(R.color.correct));
-                break;
         }
     }
 
@@ -211,7 +185,6 @@ public class MultipleChoiceFragment extends TestActivityFragment {
     private void disableAllAnswerButtons(){
         ((Button)m_ui.findViewById(R.id.button_answer1)).setClickable(false);
         ((Button)m_ui.findViewById(R.id.button_answer2)).setClickable(false);
-        ((Button)m_ui.findViewById(R.id.button_answer3)).setClickable(false);
     }
 
     // a messagebox is shown with the given string as "information"
