@@ -1,7 +1,9 @@
 package android.samples.fietsveilig.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.samples.fietsveilig.HomeFragment;
+import android.samples.fietsveilig.MainActivity;
 import android.samples.fietsveilig.R;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,7 +25,8 @@ public class TestResultFragment extends Fragment {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                Intent transfer = new Intent(getActivity(), MainActivity.class);
+                startActivity(transfer);
             }
         });
 
