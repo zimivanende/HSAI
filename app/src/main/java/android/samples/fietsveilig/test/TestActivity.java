@@ -21,8 +21,12 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        m_testFragments.add(new MultipleChoiceFragment());
+        m_resultFragment = new TestResultFragment();
+        m_testFragments.add(m_voorrangZebra);
+        m_testFragments.add(new NumberInputFragment());
         m_currentQuestion = m_testFragments.get(0);
+
+        //setQuestions();
 
         // set first quistion as starting fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
@@ -34,6 +38,9 @@ public class TestActivity extends AppCompatActivity {
         m_voorrangZebra.setAnswer1("Fietsers");
         m_voorrangZebra.setAnswer2("Bromfietsers");
         m_voorrangZebra.setAnswer3("Voetgangers");
+        m_voorrangZebra.setCorrectAnswer(3);
+
+
     }
 
     private void showMessagePopup(String message){

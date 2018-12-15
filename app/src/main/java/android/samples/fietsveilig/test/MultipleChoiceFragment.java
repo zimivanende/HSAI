@@ -66,6 +66,10 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         ((Button)m_ui.findViewById(R.id.button_answer3)).setText(answer3);
     }
 
+    /**
+     * Sets the first answer the user can select
+     * @param question
+     */
     public void setQuestion(String question){
         ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(question);
     }
