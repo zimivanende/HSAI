@@ -4,11 +4,11 @@ Jari:
 Enes:
 - Challenges content invullen
 - add friends
+- Probleem oplossen met score
+- Ga naar startpagina aanpassen.
 
 Zimi:
 - Test content invullen
-- Test borden linken aan betekenis fragment
-- Test klik waar oversteken fragment
 - help content invullen
 
 

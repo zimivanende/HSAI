@@ -15,6 +15,7 @@ public class TestActivity extends AppCompatActivity {
     private MultipleChoiceFragment m_voorrangZebra;
     private TrueFalseFragment m_deelVanWeg;
     private TrueFalseFragment m_voorrang;
+    private MultipleChoiceFragment m_borden;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,13 @@ public class TestActivity extends AppCompatActivity {
         m_voorrangZebra = new MultipleChoiceFragment();
         m_deelVanWeg = new TrueFalseFragment();
         m_voorrang = new TrueFalseFragment();
+        m_borden = new MultipleChoiceFragment();
 
         // add the fragments
         m_testFragments.add(m_voorrangZebra);
         m_testFragments.add(m_deelVanWeg);
         m_testFragments.add(m_voorrang);
+        m_testFragments.add(m_borden);
         m_testFragments.add(new NumberInputFragment());
 
         // set current question
@@ -72,6 +75,15 @@ public class TestActivity extends AppCompatActivity {
         m_voorrang.setM_hint("Al gehoord van voorrang van rechts? Maar geldt dit ook voor fietsers...");
         m_voorrang.setExplanation("Ook fietsers moeten dus voorrang verlenen aan het verkeer dat van rechts komt. \n" +
                 "Als je wil weten waarom bekijk de theorie dan even.");
+
+        m_borden.setQuestion("Welke behoord niet tot deze borden.");
+        m_borden.setAnswer1("Het begin van een voetgangerszone");
+        m_borden.setAnswer2("Het einde van een voetgangerszone");
+        m_borden.setAnswer3("Verplicht hand in hand lopen");
+        m_borden.setCorrectAnswer(3);
+        m_borden.setImage(R.drawable.begineindevoetgagerszone);
+        m_borden.setM_hint("Honden moeten aan de leiband, kinderen ook?");
+        m_borden.setExplanation("Zie theorie voor meer borden.");
     }
 
     private void showMessagePopup(String message){
