@@ -1,14 +1,6 @@
 Jari:
 - Mini games basis look laten zien => zoek en scan borden, oefen routen (navigatie), 2 dezelfde zoeken
-
-Enes:
-
-Zimi:
-- Test content invullen
-- Test borden linken aan betekenis fragment
-- Test klik waar oversteken fragment
-- help content invullen
-
+- Help functie login logout uitleg schrijven
 
 Algemeen:
 - Check bugs

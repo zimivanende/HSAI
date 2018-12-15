@@ -15,6 +15,10 @@ public class TestActivity extends AppCompatActivity {
     private MultipleChoiceFragment m_voorrangZebra;
     private TrueFalseFragment m_deelVanWeg;
     private TrueFalseFragment m_voorrang;
+    private MultipleChoiceFragment m_borden;
+    private MultipleChoiceFragment m_benaming;
+    private NumberInputFragment m_number;
+    private PhotoSelectorFragment m_fietspaden;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +30,19 @@ public class TestActivity extends AppCompatActivity {
         m_voorrangZebra = new MultipleChoiceFragment();
         m_deelVanWeg = new TrueFalseFragment();
         m_voorrang = new TrueFalseFragment();
+        m_borden = new MultipleChoiceFragment();
+        m_benaming = new MultipleChoiceFragment();
+        m_number = new NumberInputFragment();
+        m_fietspaden = new PhotoSelectorFragment();
 
         // add the fragments
         m_testFragments.add(m_voorrangZebra);
         m_testFragments.add(m_deelVanWeg);
         m_testFragments.add(m_voorrang);
-        m_testFragments.add(new NumberInputFragment());
+        m_testFragments.add(m_borden);
+        m_testFragments.add(m_benaming);
+        m_testFragments.add(m_number);
+        m_testFragments.add(m_fietspaden);
 
         // set current question
         m_currentQuestion = m_testFragments.get(0);
@@ -72,6 +83,44 @@ public class TestActivity extends AppCompatActivity {
         m_voorrang.setM_hint("Al gehoord van voorrang van rechts? Maar geldt dit ook voor fietsers...");
         m_voorrang.setExplanation("Ook fietsers moeten dus voorrang verlenen aan het verkeer dat van rechts komt. \n" +
                 "Als je wil weten waarom bekijk de theorie dan even.");
+
+        m_borden.setQuestion("Welke behoord niet tot deze borden.");
+        m_borden.setAnswer1("Het begin van een voetgangerszone");
+        m_borden.setAnswer2("Het einde van een voetgangerszone");
+        m_borden.setAnswer3("Verplicht hand in hand lopen");
+        m_borden.setCorrectAnswer(3);
+        m_borden.setImage(R.drawable.begineindevoetgagerszone);
+        m_borden.setM_hint("Honden moeten aan de leiband, kinderen ook?");
+        m_borden.setExplanation("Zie theorie voor meer borden.");
+
+        m_benaming.setQuestion("Wat is de juist benaming voor wat je op de foto ziet?");
+        m_benaming.setAnswer1("Wegmarkering");
+        m_benaming.setAnswer2("Stoplichtvak");
+        m_benaming.setAnswer3("Fietsopstelvak ");
+        m_benaming.setCorrectAnswer(3);
+        m_benaming.setImage(R.drawable.fietsopstelvak);
+        m_benaming.setM_hint("Je kan er jezelf ... voor te wachten op groen licht.");
+        m_benaming.setExplanation("Het fietsopstelvak is afgebakend door twee stopstrepen. Wanneer het verkeerslicht op rood staat," +
+                " mogen de fietsers zich opstellen tussen deze twee strepen," +
+                " vóór de stilstaande wagens.\nVoor meer info bekijk even de theorie.");
+
+        m_number.setQuestion("Fietsen in groep mag, maar met hoeveel personen mag je langs elkaar rijden?");
+        m_number.setCorrectAnswer(2);
+        m_number.setImage(R.drawable.fietseningroep);
+        m_number.setExplanation("Voor een groep fietsers van minstens 15 deelnemers zijn afwijkende regels voorzien. " +
+                "Ze zijn b.v. niet verplicht het fietspad te gebruiken en ze mogen met 2 naast elkaar blijven rijden" +
+                " op de rijbaan.\nVoor meer info bekijk even de theorie.");
+
+        m_fietspaden.setQuestion("Welk van deze foto is een fietssuggestiestrook?");
+        m_fietspaden.setAnswer1(R.drawable.fietspadantw1);
+        m_fietspaden.setAnswer2(R.drawable.fietspadantw2);
+        m_fietspaden.setAnswer3(R.drawable.fietspadantw3);
+        m_fietspaden.setCorrectAnswer(2);
+        m_fietspaden.setM_hint("Welke lijkt het minst \"verlplicht\"");
+        m_fietspaden.setExplanation("Fietssuggestiestrook bevindt zich " +
+                "meestal langs weerszijden van de rijbaan " +
+                "wanneer deze niet breed genoeg " +
+                "is voor een echt fietspad.\nVoor meer info bekijk even de theorie.");
     }
 
     private void showMessagePopup(String message){
