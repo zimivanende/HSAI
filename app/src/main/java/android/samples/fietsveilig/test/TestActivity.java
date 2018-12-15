@@ -99,6 +99,7 @@ public class TestActivity extends AppCompatActivity {
 
         // if there are no more questions go to resultFragment
         if (currentIndex == (m_testFragments.size()-1)){
+            m_accumulatedScore += m_currentQuestion.getScore();
             m_resultFragment.setScore(m_accumulatedScore, m_testFragments.size());
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_resultFragment).commit();
         }
