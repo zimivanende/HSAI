@@ -35,5 +35,18 @@
     <string name="progress_last_score">Laatste score</string>
     <string name="requests_accept">Accepteer</string>
     <string name="requests_reject">Weiger</string>
+    
+    <!-- Strings related to login -->
+	<string name="title_activity_login">Sign in</string>
+    <string name="prompt_userId">Gebruikersnaam</string>
+    <string name="prompt_password">Wachtwoord</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="action_guest_sign_in">Log in als gast</string>
+    <string name="action_sign_in_short">Log in</string>
+    <string name="error_invalid_email">Verkeerde gebruikersnaam</string>
+    <string name="error_invalid_password">Het wachtwoord is te kort</string>
+    <string name="error_incorrect_password">Het wachtwoord is incoorect</string>
+    <string name="error_field_required">Dit veld is verplicht</string>
+    <string name="logout">Uitloggen</string>
 
 </resources>
