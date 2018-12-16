@@ -23,4 +23,9 @@
         <item name="spinBars">true</item>
         <item name="color">@color/background_color</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

@@ -35,9 +35,9 @@
     <string name="progress_last_score">Laatste score</string>
     <string name="requests_accept">Accepteer</string>
     <string name="requests_reject">Weiger</string>
-    
+
     <!-- Strings related to login -->
-	<string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Sign in</string>
     <string name="prompt_userId">Gebruikersnaam</string>
     <string name="prompt_password">Wachtwoord</string>
     <string name="action_sign_in">Log in</string>
@@ -48,5 +48,15 @@
     <string name="error_incorrect_password">Het wachtwoord is incoorect</string>
     <string name="error_field_required">Dit veld is verplicht</string>
     <string name="logout">Uitloggen</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- MINIGAMES TODO: verander naam van virtual route -->
+    <string name="memory_button">Speel Memory</string>
+    <string name="search_and_find_button">Ga op zoek naar verkeersborden</string>
+    <string name="virtual_route_button">Virtual Route</string>
+    <string name="open_camera">Scan verkeersbord</string>
+    <string name="title_activity_search_and_find">SearchAndFindActivity</string>
 
 </resources>
