@@ -10,7 +10,6 @@ public class RequestsModel {
     private static void init(){
         if (!m_initialized){
             m_requests.add("Dirk (Beginner)");
-            m_requests.add("Gert (Intermediar)");
             m_requests.add("Albert (Ervaren)");
             m_requests.add("David (Nieuweling)");
             m_initialized = true;

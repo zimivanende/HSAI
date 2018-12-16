@@ -2,12 +2,6 @@ Jari:
 - Mini games basis look laten zien => zoek en scan borden, oefen routen (navigatie), 2 dezelfde zoeken
 - Help functie login logout uitleg schrijven
 
-Enes:
-- Challenges content invullen
-- add friends
-- Probleem oplossen met score
-- Ga naar startpagina aanpassen.
-
 Algemeen:
 - Check bugs
 - Check spellingsfouten
