@@ -10,6 +10,7 @@
     <string name="username">Username</string>
     <string name="nav_drawer_open">Open navigation drawer</string>
     <string name="nav_drawer_close">Close navigation drawer</string>
+    <string name="nav_collection">Collectie</string>
 
 
     <!-- HOME FRAGMENT -->
@@ -58,5 +59,7 @@
     <string name="virtual_route_button">Virtual Route</string>
     <string name="open_camera">Scan verkeersbord</string>
     <string name="title_activity_search_and_find">SearchAndFindActivity</string>
+    <string name="title_activity_memory2">Memory spelen</string>
+    <string name="title_activity_search_and_find2">Zoek de verkeersborden</string>
 
 </resources>

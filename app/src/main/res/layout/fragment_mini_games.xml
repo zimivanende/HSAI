@@ -54,7 +54,7 @@
         android:text="Doe virtuele route"
         android:textSize="36sp"
         android:textColor="@color/textOnOthers"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/gray"/>
 </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

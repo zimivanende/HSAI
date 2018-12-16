@@ -79,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTitle("Help");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HelpFragment()).commit();
                 break;
+            case R.id.nav_collection:
+                //setTitle("Collectie");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CollectionFragment()).commit();
+                break;
             case R.id.nav_logout:
                 SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();

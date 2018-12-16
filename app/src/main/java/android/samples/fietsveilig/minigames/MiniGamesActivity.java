@@ -41,7 +41,7 @@ public class MiniGamesActivity extends AppCompatActivity {
             }
         });
         Button virtualRoute_button =(Button) findViewById(R.id.button_virtual_route);
-        virtualRoute_button.setEnabled(false);
+        virtualRoute_button.setEnabled(true);
         virtualRoute_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,14 +73,14 @@ public class MiniGamesActivity extends AppCompatActivity {
             startActivity(transfer);
         }
         else {
-            Toast.makeText(this, "de camera is nodig voor deze minigame maar deze is niet beschikbaar.",
+            Toast.makeText(this, "de camera is nodig voor deze minigame maar deze is niet beschikbaar, je kan de verzamelde verkeersborden ook in je collectie terugvinden in het menu",
                     Toast.LENGTH_LONG).show();
         }
 
     }
 
     private void startVirtualRouteFragment() {
-        Intent transfer = new Intent(this, TheorieActivity.class);
-        startActivity(transfer);
+        Toast.makeText(this, "Je hebt niet de juiste status om deze minigame vrij te spelen, dit gebeurt pas als je de status 'Ervaren' hebt. Blijf oefenen",
+                Toast.LENGTH_LONG).show();
     }
 }

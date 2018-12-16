@@ -52,10 +52,21 @@
                 android:value="android.samples.fietsveilig.MainActivity" />
         </activity>
         <activity
+            android:name=".minigames.MemoryActivity"
+            android:label="@string/title_activity_memory2"
+            android:parentActivityName=".minigames.MiniGamesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />
+        </activity>
+        <activity
             android:name=".minigames.SearchAndFindActivity"
-            android:label="@string/title_activity_search_and_find"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".minigames.MemoryActivity"></activity>
+            android:label="@string/title_activity_search_and_find2"
+            android:parentActivityName=".minigames.MiniGamesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />
+        </activity>
     </application>
 
 </manifest>

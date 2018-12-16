@@ -14,33 +14,33 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_11"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_12"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_13"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_14"
             android:scaleType="centerInside"/>
@@ -55,33 +55,33 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_21"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_22"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_23"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_24"
             android:scaleType="centerInside"/>
@@ -96,33 +96,33 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_31"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_32"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_33"
             android:scaleType="centerInside"/>
 
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_person_black_24dp"
+            android:src="@drawable/questionmark"
             android:layout_height="match_parent"
             android:id="@+id/iv_34"
             android:scaleType="centerInside"/>

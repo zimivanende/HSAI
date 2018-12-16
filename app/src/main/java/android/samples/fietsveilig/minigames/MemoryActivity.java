@@ -196,7 +196,7 @@ public class MemoryActivity extends AppCompatActivity {
         else if (m_cardsArray[pickedCard] == 201)
             v.setImageResource(m_im_201);
         else if (m_cardsArray[pickedCard] == 202)
-            v.setImageResource(m_im_201);
+            v.setImageResource(m_im_202);
         else if (m_cardsArray[pickedCard] == 203)
             v.setImageResource(m_im_203);
         else if (m_cardsArray[pickedCard] == 204)
@@ -298,22 +298,21 @@ public class MemoryActivity extends AppCompatActivity {
             }
 
             m_score += 10;
-            m_tvScore.setText("Score " + m_score);
+            m_tvScore.setText("Score: " + m_score);
         }
         else {
-            m_iv_11.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_12.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_13.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_14.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_21.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_22.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_23.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_24.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_31.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_32.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_33.setImageResource(R.drawable.ic_person_black_24dp);
-            m_iv_34.setImageResource(R.drawable.ic_person_black_24dp);
-
+            m_iv_11.setImageResource(R.drawable.questionmark);
+            m_iv_12.setImageResource(R.drawable.questionmark);
+            m_iv_13.setImageResource(R.drawable.questionmark);
+            m_iv_14.setImageResource(R.drawable.questionmark);
+            m_iv_21.setImageResource(R.drawable.questionmark);
+            m_iv_22.setImageResource(R.drawable.questionmark);
+            m_iv_23.setImageResource(R.drawable.questionmark);
+            m_iv_24.setImageResource(R.drawable.questionmark);
+            m_iv_31.setImageResource(R.drawable.questionmark);
+            m_iv_32.setImageResource(R.drawable.questionmark);
+            m_iv_33.setImageResource(R.drawable.questionmark);
+            m_iv_34.setImageResource(R.drawable.questionmark);
         }
         m_iv_11.setEnabled(true);
         m_iv_12.setEnabled(true);
@@ -328,30 +327,31 @@ public class MemoryActivity extends AppCompatActivity {
         m_iv_33.setEnabled(true);
         m_iv_34.setEnabled(true);
         m_turns += 1;
-        m_tvTurns.setText("Beurtnummer " + m_turns);
+        m_tvTurns.setText("Beurtnummer: " + m_turns);
         checkEnd();
     }
 
     private void checkEnd() {
         if (m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE &&
-                m_iv_11.getVisibility() == View.INVISIBLE) {
+                m_iv_12.getVisibility() == View.INVISIBLE &&
+                m_iv_13.getVisibility() == View.INVISIBLE &&
+                m_iv_14.getVisibility() == View.INVISIBLE &&
+                m_iv_21.getVisibility() == View.INVISIBLE &&
+                m_iv_22.getVisibility() == View.INVISIBLE &&
+                m_iv_23.getVisibility() == View.INVISIBLE &&
+                m_iv_24.getVisibility() == View.INVISIBLE &&
+                m_iv_31.getVisibility() == View.INVISIBLE &&
+                m_iv_32.getVisibility() == View.INVISIBLE &&
+                m_iv_33.getVisibility() == View.INVISIBLE &&
+                m_iv_34.getVisibility() == View.INVISIBLE) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryActivity.this);
             alertDialogBuilder
-                    .setMessage("Proficiat, je hebt het spel uitgespeeld in " + m_turns)
+                    .setMessage("Proficiat, je hebt het spel uitgespeeld in " + m_turns + " beurten")
                     .setCancelable(false)
                     .setPositiveButton("Opnieuw spelen", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            finish();
                             Intent transfer = new Intent(getApplicationContext(), MemoryActivity.class);
                             startActivity(transfer);
                         }
@@ -362,6 +362,8 @@ public class MemoryActivity extends AppCompatActivity {
                             finish();
                         }
                     });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         }
     }
 }
