@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HelpFragment()).commit();
                 break;
             case R.id.nav_collection:
-                //setTitle("Collectie");
+                setTitle("Collectie");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CollectionFragment()).commit();
                 break;
             case R.id.nav_logout:
