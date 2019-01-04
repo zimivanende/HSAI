@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
         android:padding="5dp"
-        android:textAlignment="center"
         android:textColor="@color/textOnWhite"
         android:textSize="17sp" />
 
