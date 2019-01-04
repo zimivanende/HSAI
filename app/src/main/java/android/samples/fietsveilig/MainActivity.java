@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,6 +45,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
             setTitle("Home");
+        }
+
+        // if logged in as guest, disable leaderboard
+        SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+        if (sp.getBoolean("isGuest", false)){
+            NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
+            Menu menuNav = navigationView.getMenu();
+            MenuItem nav_item2 = menuNav.findItem(R.id.nav_leaderboard);
+            nav_item2.setEnabled(false);
         }
     }
 

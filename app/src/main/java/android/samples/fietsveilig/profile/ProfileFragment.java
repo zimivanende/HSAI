@@ -3,6 +3,7 @@ package android.samples.fietsveilig.profile;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.samples.fietsveilig.R;
 import android.support.annotation.NonNull;
@@ -25,8 +26,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.support.design.widget.Snackbar;
+import android.widget.Toast;
 
 import java.util.Vector;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment {
     private ViewPager m_pages;
@@ -48,7 +52,7 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View UI = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View UI = inflater.inflate(R.layout.fragment_profile, container, false);
 
         // set m_pageAdapter as our viewPager's adapter
         m_pages = (ViewPager) UI.findViewById(R.id.pager);
@@ -58,12 +62,37 @@ public class ProfileFragment extends Fragment {
         m_tabs = (TabLayout) UI.findViewById(R.id.tabLayout);
         m_tabs.setupWithViewPager(m_pages);
 
+        // if logged in as a guest, change profile name, disable friends and requests tab
+        final SharedPreferences sp = getActivity().getSharedPreferences ("login", MODE_PRIVATE);
+        if (sp.getBoolean("isGuest", false)){
+            ((TextView)UI.findViewById(R.id.profileName)).setText("Gast");
+            m_tabs.removeTabAt(1);
+            m_tabs.removeTabAt(1);
+        }
+
+/*
         // tab click listener for navigating on tab click
         m_tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                // move to page corresponding with clicked tab
-                m_pages.setCurrentItem(tab.getPosition());
+                // move to page corresponding with clicked tab, block friends and notifications if logged in as guest
+                if (sp.getBoolean("isGuest", false)){
+                    if (tab.getPosition() == 0){
+                        m_pages.setCurrentItem(tab.getPosition());
+                    }
+                    else{ // You cant use friends and notifications tab as a guest
+                        // show toast informing user to login in order to use the sections
+                        Context context = getActivity().getApplicationContext();
+                        CharSequence text = "Je moet inloggen om deze secties weer te geven";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                }
+                else{
+                    m_pages.setCurrentItem(tab.getPosition());
+                }
             }
 
             // we don't need these
@@ -71,7 +100,10 @@ public class ProfileFragment extends Fragment {
 
             }
             public void onTabReselected(TabLayout.Tab tab) {}
-        });
+        });*/
+
+
+
 
         // return the fragments' view
         return UI;
@@ -200,6 +232,13 @@ public class ProfileFragment extends Fragment {
                                 .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
+                                        // show toast message
+                                        CharSequence text = FriendsModel.getFriend(newPos) + " verwijderd als vriend.";
+                                        int duration = Toast.LENGTH_SHORT;
+
+                                        Toast toast = Toast.makeText(m_context, text, duration);
+                                        toast.show();
+
                                         FriendsModel.remove(newPos);
                                         m_friendsAdapter.notifyDataSetChanged();
                                     }
@@ -379,6 +418,13 @@ public class ProfileFragment extends Fragment {
                         RequestsModel.remove(position); // remove from request
                         m_requestsAdapter.notifyDataSetChanged(); // notify requests view
                         FriendsFragment.getAdapter().notifyDataSetChanged(); // notify friends view
+
+                        // toast message
+                        CharSequence text = "Vriendschapsverzoek geaccepteerd.";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(m_context, text, duration);
+                        toast.show();
                     }
                 });
 
@@ -389,6 +435,14 @@ public class ProfileFragment extends Fragment {
                         // delete button is clicked, now ask for a confirmation
                         RequestsModel.remove(position); // remove from request
                         m_requestsAdapter.notifyDataSetChanged(); // notify requests view
+
+
+                        // toast message
+                        CharSequence text = "Vriendschapsverzoek geweigerd.";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(m_context, text, duration);
+                        toast.show();
                     }
                 });
 
