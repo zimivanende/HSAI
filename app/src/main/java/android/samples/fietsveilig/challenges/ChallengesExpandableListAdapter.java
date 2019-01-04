@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.Vector;
@@ -107,6 +108,15 @@ public class ChallengesExpandableListAdapter extends BaseExpandableListAdapter {
         // now find the textView, set its text and return the whole layout where it is situated
         TextView txtHeader = (TextView) convertView.findViewById(R.id.challenge_item);
         txtHeader.setText(childText);
+
+        if(childPosition == 1 && groupPosition == 0){
+            CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.checkboxy);
+            checkBox.setChecked(true);
+        }
+        if(childPosition == 0 && groupPosition == 1){
+            CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.checkboxy);
+            checkBox.setChecked(true);
+        }
         return convertView;
     }
 

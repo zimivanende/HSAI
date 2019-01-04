@@ -80,7 +80,7 @@ public class MiniGamesActivity extends AppCompatActivity {
     }
 
     private void startVirtualRouteFragment() {
-        Toast.makeText(this, "Je hebt niet de juiste status om deze minigame vrij te spelen, dit gebeurt pas als je de status 'Ervaren' hebt. Blijf oefenen",
+        Toast.makeText(this, "Je hebt niet de juiste status om deze minigame vrij te spelen, dit gebeurt pas als je de status 'Expert' hebt. Blijf oefenen",
                 Toast.LENGTH_LONG).show();
     }
 }

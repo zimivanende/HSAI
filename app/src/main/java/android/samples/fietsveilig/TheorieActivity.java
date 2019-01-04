@@ -19,8 +19,6 @@ public class TheorieActivity extends AppCompatActivity {
         ExpandableListView theorie = (ExpandableListView)findViewById(R.id.theorie_list);
         TheorieExpandableListAdapter theorieAdapter = new TheorieExpandableListAdapter(this);
         theorie.setAdapter(theorieAdapter);
-
-        theorie.expandGroup(0); // expand daily challenges
     }
 
 }

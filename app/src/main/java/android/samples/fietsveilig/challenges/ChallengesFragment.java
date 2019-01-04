@@ -23,6 +23,7 @@ public class ChallengesFragment extends Fragment {
         challenges.setAdapter(challengeAdapter);
 
         challenges.expandGroup(0); // expand daily challenges
+        challenges.expandGroup(1); // expand weekly challenges
 
         return UI;
     }
