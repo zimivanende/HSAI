@@ -77,6 +77,9 @@ public class ProfileFragment extends Fragment {
         return UI;
     }
 
+
+
+
     // ######################### PROGRESS FRAGMENT #########################
     public static class ProgressFragment extends Fragment{
         private static final String m_title = "Vooruitgang";
@@ -189,7 +192,7 @@ public class ProfileFragment extends Fragment {
                         // delete button is clicked, now ask for a confirmation
 
                         new AlertDialog.Builder(m_context)
-                                .setTitle("Confirmation")
+                                .setTitle("Bevestiging")
                                 .setMessage("Ben je zeker dat je " + FriendsModel.getFriend(newPos) + " van je vriendenlijst wilt verwijderen?")
                                 .setIcon(android.R.drawable.ic_dialog_alert)
 
