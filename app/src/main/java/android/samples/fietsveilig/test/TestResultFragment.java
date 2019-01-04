@@ -16,6 +16,7 @@ public class TestResultFragment extends Fragment {
     private View m_ui;
     private int m_score = -1;
     private int m_maxScore = -1;
+    private int m_xp = -1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,13 +31,20 @@ public class TestResultFragment extends Fragment {
             }
         });
 
+        // set score text
         TextView txtScore = (TextView)m_ui.findViewById(R.id.textView_score);
         txtScore.setText(m_score + "/" + m_maxScore);
+
+        // set xp text
+        TextView txtXp = (TextView)m_ui.findViewById(R.id.textviewXp);
+        txtXp.setText("Je hebt "+ m_xp + " xp verdiend.");
+
         return m_ui;
     }
 
-    public void setScore(int score, int maxScore){
+    public void setScore(int score, int maxScore, int xp){
         m_score = score;
         m_maxScore = maxScore;
+        m_xp = xp;
     }
 }

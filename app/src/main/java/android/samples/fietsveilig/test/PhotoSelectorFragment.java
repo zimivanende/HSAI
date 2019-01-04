@@ -15,6 +15,7 @@ public class PhotoSelectorFragment extends TestActivityFragment {
         this.m_hint = m_hint;
     }
 
+    private String mTxtProgress = null;
     private String m_hint;
     private String m_explanation;
     private int m_correctAnswer = 1;
@@ -22,6 +23,17 @@ public class PhotoSelectorFragment extends TestActivityFragment {
     private int m_score = 0;
     private int[] m_answers = new int[3];
     private String m_question = "question";
+    private boolean mHintUsed = false;
+
+    @Override
+    public boolean hintUsed() {
+        return mHintUsed;
+    }
+
+    @Override
+    public void setProgress(String progress) {
+        mTxtProgress = progress;
+    }
 
     @Override
     public int getScore() {
@@ -38,6 +50,7 @@ public class PhotoSelectorFragment extends TestActivityFragment {
         ((ImageView)m_ui.findViewById(R.id.image_answer2)).setImageResource(m_answers[1]);
         ((ImageView)m_ui.findViewById(R.id.image_answer3)).setImageResource(m_answers[2]);
         ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(m_question);
+        ((TextView)m_ui.findViewById(R.id.textviewProgress)).setText(mTxtProgress);
 
         initButtons();
 
@@ -157,6 +170,7 @@ public class PhotoSelectorFragment extends TestActivityFragment {
             @Override
             public void onClick(View v) {
                 showMessagePopup("Hint", m_hint);
+                mHintUsed = true;
             }
         });
 

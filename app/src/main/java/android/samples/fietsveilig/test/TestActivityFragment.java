@@ -35,6 +35,11 @@ public abstract class TestActivityFragment extends Fragment {
     // to retrieve the score the user got on the test
     abstract public int getScore();
 
+    // to set the progress
+    abstract public void setProgress(String progress);
+
+    // whether or not a hint is used
+    abstract public boolean hintUsed();
 }
 
 // mulptiple choice

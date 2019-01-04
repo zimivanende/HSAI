@@ -19,6 +19,7 @@ public class TestActivity extends AppCompatActivity {
     private MultipleChoiceFragment m_benaming;
     private NumberInputFragment m_number;
     private PhotoSelectorFragment m_fietspaden;
+    private int mNumUsedHints = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class TestActivity extends AppCompatActivity {
         setQuestions();
 
         // set first question as starting fragment
+        m_currentQuestion.setProgress("1/" + m_testFragments.size());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_testFragments.get(0)).commit();
 
     }
@@ -131,19 +133,34 @@ public class TestActivity extends AppCompatActivity {
                 .setNeutralButton("ok", null).show();
     }
 
+    /**
+     * Calculates the xp gained from doing the questions
+     */
+    private int getXp(){
+        return m_accumulatedScore * 3 - mNumUsedHints * 2;
+    }
+
+    /**
+     * Makes the next test visible
+     */
     public void setNextTestActivity(){
         int currentIndex = m_testFragments.indexOf(m_currentQuestion);
 
         // if there are no more questions go to resultFragment
         if (currentIndex == (m_testFragments.size()-1)){
             m_accumulatedScore += m_currentQuestion.getScore();
-            m_resultFragment.setScore(m_accumulatedScore, m_testFragments.size());
+            m_resultFragment.setScore(m_accumulatedScore, m_testFragments.size(), getXp());
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_resultFragment).commit();
         }
         // if there are questions remaining, set next question fragment
         else if (currentIndex < m_testFragments.size()){
             m_accumulatedScore += m_currentQuestion.getScore();
+
+            if (m_currentQuestion.hintUsed())
+                mNumUsedHints++;
+
             m_currentQuestion = m_testFragments.get(currentIndex+1);
+            m_currentQuestion.setProgress((currentIndex+2) + "/" + m_testFragments.size());
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_currentQuestion).commit();
         }
     }

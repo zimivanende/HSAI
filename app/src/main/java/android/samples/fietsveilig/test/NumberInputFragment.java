@@ -21,6 +21,7 @@ public class NumberInputFragment extends TestActivityFragment {
         this.m_explanation = m_explanation;
     }
 
+    private String mTxtProgress = null;
     private String m_hint = "Gebruik de + en - knoppen om het nummer te verhogen of te verlagen.";
     private String m_explanation = "uitleg";
     private String m_question = "vraag";
@@ -30,6 +31,18 @@ public class NumberInputFragment extends TestActivityFragment {
     private int m_max = 10;
     private int m_score = 0;
     private int m_image = 0;
+    private boolean mHintUsed = false;
+
+    @Override
+    public boolean hintUsed() {
+        return mHintUsed;
+    }
+
+    @Override
+    public void setProgress(String progress) {
+        mTxtProgress = progress;
+    }
+
 
     @Override
     public int getScore() {
@@ -46,7 +59,8 @@ public class NumberInputFragment extends TestActivityFragment {
         // set the text of the question view
         ((TextView)m_ui.findViewById(R.id.text_view_question_number)).setText(m_question);
         ((ImageView)m_ui.findViewById(R.id.image)).setImageResource(m_image);
-
+        ((TextView)m_ui.findViewById(R.id.textviewProgress)).setText(mTxtProgress);
+        ((TextView)m_ui.findViewById(R.id.textviewProgress)).setText(mTxtProgress);
 
         // initialize listeners
         initButtons();
@@ -131,6 +145,7 @@ public class NumberInputFragment extends TestActivityFragment {
             @Override
             public void onClick(View v) {
                 showMessagePopup("Hint", m_hint);
+                mHintUsed = true;
             }
         });
 

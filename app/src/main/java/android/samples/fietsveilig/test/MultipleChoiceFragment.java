@@ -18,6 +18,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         this.m_hint = m_hint;
     }
 
+    private String mTxtProgress = null;
     private String m_hint;
     private String m_explanation;
     private int m_correctAnswer = 1;
@@ -26,6 +27,17 @@ public class MultipleChoiceFragment extends TestActivityFragment {
     private String[] m_answers = new String[3];
     private String m_question = "question";
     private int m_image = 0;
+    private boolean mHintUsed = false;
+
+    @Override
+    public boolean hintUsed() {
+        return mHintUsed;
+    }
+
+    @Override
+    public void setProgress(String progress) {
+        mTxtProgress = progress;
+    }
 
     @Override
     public int getScore() {
@@ -43,6 +55,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
         ((Button)m_ui.findViewById(R.id.button_answer3)).setText(m_answers[2]);
         ((TextView)m_ui.findViewById(R.id.text_view_question)).setText(m_question);
         ((ImageView)m_ui.findViewById(R.id.image)).setImageResource(m_image);
+        ((TextView)m_ui.findViewById(R.id.textviewProgress)).setText(mTxtProgress);
 
         initButtons();
 
@@ -167,6 +180,7 @@ public class MultipleChoiceFragment extends TestActivityFragment {
             @Override
             public void onClick(View v) {
                 showMessagePopup("Hint", m_hint);
+                mHintUsed = true;
             }
         });
 
