@@ -32,7 +32,6 @@
         android:linksClickable="false"
         android:longClickable="false"
         android:padding="5dp"
-        android:textAlignment="center"
         android:textColor="@color/textOnWhite"
         android:textIsSelectable="false"
         android:textSize="15sp" />

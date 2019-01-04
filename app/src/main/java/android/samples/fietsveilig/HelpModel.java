@@ -18,23 +18,13 @@ public class HelpModel {
         data.add(new Pair("Vrienden toevoegen en verwijderen", "Ga naar je profiel pagina.\n" +
                 "Om vrienden toe te voegen druk je op \"+\" knop, voer je de naam in en drukt op voeg toe.\n" +
                 "Om vrienden te verwijderen klik je op het vuilbakje naast hun naam."));
-        data.add(new Pair("Login & Loguit", "Als je de applicatie voor het eerst opstart," +
-                " dan kan je kiezen uit twee manieren om in te loggen." +
-                " Zo kan je bijvoorbeeld inloggen met een gebruikersnaam en wachtwoord" +
-                " dat je hebt gekregen van je leerkracht. Je geeft deze dan in in de tekstvakjes " +
-                "die te zien zijn op het startscherm. Als je dit goed hebt gedaan, dan kom je nu terecht op het home-menu.\n" +
+        data.add(new Pair("Login & Loguit", "Inloggen met een gebruikersnaam en wachtwoord, gekregen van de leerkracht.\n" +
                 "\n" +
-                "Als je de applicatie wilt gebruiken maar je geen gebruikersnaam en wachtwoord hebt om in te loggen, dan kan je ook" +
-                " de optie \"Inloggen als gast\" selecteren. Dit zorgt ervoor dat je nog steeds alle theorie" +
-                " kan inkijken en dat je de oefeningen nog steeds kunt maken. Het verschil met normaal inloggen is" +
-                " wel dat je nu niet kan zien hoe je vrienden het hebben gedaan. Bovendien wordt je vooruitgang in het" +
-                " vrijspelen van de minigames niet bijgehouden eenmaal je hebt uitgelogd.\n" +
+                "Inloggen als gast, zonder gebruikersnaam en/of wachtwoord." +
+                "Alle theorie en oefeningen zijn nog beschikbaar maar de voortgang wordt niet bijgehouden.\n" +
                 "\n" +
-                "Al je beslist om de te stoppen met het gebruiken van de applicatie en je verlaat de appplicatie, " +
-                "dan blijf je toch ingelogd. Je  kan natuurlijk wel uitloggen als je dit zou willen, dit kan door" +
-                " in het zijbalk-menu de keuze \"Uitloggen\" te selecteren. Dit brengt je onmiddelijk terug naar het inlog-scherm waar " +
-                "je dan kiezen om terug in te loggen met je gebruikersnaam en wachtwoord. Je kan natuurlijk ook altijd inloggen als gast, hier " +
-                "heb je geen inlog-gegevens voor nodig maar je voortgang wordt dan ook niet bewaard na het uitloggen."));
+                "Je blijft ingelogd, ook na het verlaten van de app." +
+                "Je kan uitloggen door in het zij-menu, de optie te selecteren"));
 
         return data;
     }
