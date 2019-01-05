@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#C75145</color>
+    <color name="colorPrimary">#c75145</color>
     <color name="colorPrimaryDark">#732a23</color>
     <color name="colorAccent">#ea4634</color>
     <color name="background_color">#fff</color>
     <color name="seperator">#484949</color>
     <color name="textOnOthers">#fff</color>
-    <color name="textOnWhite">#000</color>
+    <color name="textOnWhite">#000000</color>
 
     <!-- HAMBURGER MENU -->
     <color name="usernameColor">#C75145</color>

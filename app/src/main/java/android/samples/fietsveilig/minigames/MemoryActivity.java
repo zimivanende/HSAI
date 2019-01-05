@@ -7,6 +7,7 @@ import android.samples.fietsveilig.R;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -331,6 +332,53 @@ public class MemoryActivity extends AppCompatActivity {
         checkEnd();
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryActivity.this);
+        alertDialogBuilder
+                .setMessage("Ben je zeker dat je de minigame wilt verlaten? Je ontvangt geen punten.")
+                .setCancelable(false)
+                .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNegativeButton("Stoppen met spelen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MemoryActivity.super.onBackPressed();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryActivity.this);
+                alertDialogBuilder
+                        .setMessage("Ben je zeker dat je de minigame wilt verlaten? Je ontvangt geen punten.")
+                        .setCancelable(false)
+                        .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Stoppen met spelen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                MemoryActivity.super.onBackPressed();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+        }
+        return true;
+    }
+
     private void checkEnd() {
         if (m_iv_11.getVisibility() == View.INVISIBLE &&
                 m_iv_12.getVisibility() == View.INVISIBLE &&
@@ -345,8 +393,9 @@ public class MemoryActivity extends AppCompatActivity {
                 m_iv_33.getVisibility() == View.INVISIBLE &&
                 m_iv_34.getVisibility() == View.INVISIBLE) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryActivity.this);
+            int points = 40+m_score-m_turns;
             alertDialogBuilder
-                    .setMessage("Proficiat, je hebt het spel uitgespeeld in " + m_turns + " beurten")
+                    .setMessage("Proficiat, je hebt het spel uitgespeeld in " + m_turns + " beurten. Je hebt " + points + " punten verdiend.")
                     .setCancelable(false)
                     .setPositiveButton("Opnieuw spelen", new DialogInterface.OnClickListener() {
                         @Override

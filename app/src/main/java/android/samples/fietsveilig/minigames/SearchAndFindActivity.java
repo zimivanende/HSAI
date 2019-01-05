@@ -1,133 +1,233 @@
 package android.samples.fietsveilig.minigames;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.hardware.Camera;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.Size;
+import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.samples.fietsveilig.R;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
+import static android.hardware.Camera.open;
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 import static android.support.constraint.Constraints.TAG;
 
 public class SearchAndFindActivity extends AppCompatActivity {
     private CameraPreview m_cameraPreview;
-
+    private android.hardware.Camera m_camera;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_and_find);
-        Camera cam = getCameraInstance();
-        if (cam != null) {
-            m_cameraPreview = new CameraPreview(this, getCameraInstance());
-            FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-            TextView txt = new TextView(this);
-            txt.setText("Testing");
-            preview.addView(txt);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (safeCameraOpen()) {
+            m_cameraPreview = new CameraPreview(this, m_camera);
+            //FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+            //preview.addView(m_cameraPreview);
+            Button captureButton = (Button) findViewById(R.id.button_capture);
+            captureButton.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // get an image from the camera
+                            m_camera.takePicture(null, null, mPicture);
+                        }
+                    }
+            );
+
         }
         else {
-            Toast.makeText(this, "de camera is nodig voor deze minigame maar deze is niet beschikbaar.",
-                    Toast.LENGTH_LONG).show();
+            //FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+            //preview.setVisibility(View.GONE);
+            ImageView iv = findViewById(R.id.placeholder);
+            iv.setImageResource(R.drawable.fietspad);
         }
-
+        Button collectionButton = (Button) findViewById(R.id.collection_button);
+        collectionButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openCollection();
+                    }
+                }
+        );
     }
 
-
-    public static Camera getCameraInstance(){
-        Camera c = null;
-        try {
-            c = Camera.open(); // attempt to get a Camera instance
-        }
-        catch (Exception e){
-            // Camera is not available (in use or does not exist)
-            Log.d(TAG, "No camera available");
-        }
-        return c; // returns null if camera is unavailable
+    private static Uri getOutputMediaFileUri(int type){
+        return Uri.fromFile(getOutputMediaFile(type));
     }
-
 
     @Override
-    public void onDestroy() {
-        try {
-            m_cameraPreview.getmCamera().release();
-        }
-        catch (Exception e){
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SearchAndFindActivity.this);
+        alertDialogBuilder
+                .setMessage("Ben je zeker dat je de minigame wilt verlaten? Je ontvangt geen punten.")
+                .setCancelable(false)
+                .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
+                    }
+                })
+                .setNegativeButton("Stoppen met spelen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SearchAndFindActivity.super.onBackPressed();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SearchAndFindActivity.this);
+                alertDialogBuilder
+                        .setMessage("Ben je zeker dat je de minigame wilt verlaten? Je ontvangt geen punten.")
+                        .setCancelable(false)
+                        .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Stoppen met spelen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SearchAndFindActivity.super.onBackPressed();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
         }
-        super.onDestroy();
+        return true;
     }
 
-    public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
-        private SurfaceHolder mHolder;
-        private Camera mCamera;
+    private void openCollection() {
+        Intent transfer = new Intent(this, CollectionActivity.class);
+        startActivity(transfer);
+    }
 
-        public CameraPreview(Context context, Camera camera) {
-            super(context);
-            mCamera = camera;
-            // Install a SurfaceHolder.Callback so we get notified when the
-            // underlying surface is created and destroyed.
-            mHolder = getHolder();
-            mHolder.addCallback(this);
-        }
+    /** Create a File for saving an image or video */
+    private static File getOutputMediaFile(int type){
+        // To be safe, you should check that the SDCard is mounted
+        // using Environment.getExternalStorageState() before doing this.
 
-        public Camera getmCamera() {
-            return mCamera;
-        }
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "MyCameraApp");
+        // This location works best if you want the created images to be shared
+        // between applications and persist after your app has been uninstalled.
 
-
-        public void surfaceCreated(SurfaceHolder holder) {
-            // The Surface has been created, now tell the camera where to draw the preview.
-            try {
-                mCamera.setPreviewDisplay(holder);
-                mCamera.startPreview();
-            } catch (IOException e) {
-                Log.d(TAG, "Error setting camera preview: " + e.getMessage());
+        // Create the storage directory if it does not exist
+        if (! mediaStorageDir.exists()){
+            if (! mediaStorageDir.mkdirs()){
+                Log.d("MyCameraApp", "failed to create directory");
+                return null;
             }
         }
 
-        public void surfaceDestroyed(SurfaceHolder holder) {
-            // empty. Take care of releasing the Camera preview in your activity.
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File mediaFile;
+        if (type == MEDIA_TYPE_IMAGE){
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
+                    "IMG_"+ timeStamp + ".jpg");
+        } else if(type == MEDIA_TYPE_VIDEO) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
+                    "VID_"+ timeStamp + ".mp4");
+        } else {
+            return null;
         }
 
-        public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-            // If your preview can change or rotate, take care of those events here.
-            // Make sure to stop the preview before resizing or reformatting it.
+        return mediaFile;
+    }
 
-            if (mHolder.getSurface() == null) {
-                // preview surface does not exist
+    private boolean safeCameraOpen() {
+        boolean qOpened = false;
+
+        try {
+            releaseCameraAndPreview();
+            m_camera = android.hardware.Camera.open();
+            qOpened = (m_camera != null);
+        } catch (Exception e) {
+            Log.e(getString(R.string.app_name), "failed to open Camera");
+            e.printStackTrace();
+        }
+
+        return qOpened;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        releaseCamera();              // release the camera immediately on pause event
+    }
+
+    private void releaseCamera(){
+        if (m_camera != null){
+            m_camera.release();        // release the camera for other applications
+            m_camera = null;
+        }
+    }
+
+    private void releaseCameraAndPreview() {
+        if (m_camera != null) {
+            m_camera.release();
+            m_camera = null;
+        }
+    }
+
+    private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
+
+        @Override
+        public void onPictureTaken(byte[] data, Camera camera) {
+
+            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+            if (pictureFile == null){
+                Log.d(TAG, "Error creating media file, check storage permissions");
                 return;
             }
 
-            // stop preview before making changes
             try {
-                mCamera.stopPreview();
-            } catch (Exception e) {
-                // ignore: tried to stop a non-existent preview
-            }
-
-            // set preview size and make any resize, rotate or
-            // reformatting changes here
-
-            // start preview with new settings
-            try {
-                mCamera.setPreviewDisplay(mHolder);
-                mCamera.startPreview();
-
-            } catch (Exception e) {
-                Log.d(TAG, "Error starting camera preview: " + e.getMessage());
+                FileOutputStream fos = new FileOutputStream(pictureFile);
+                fos.write(data);
+                fos.close();
+            } catch (FileNotFoundException e) {
+                Log.d(TAG, "File not found: " + e.getMessage());
+            } catch (IOException e) {
+                Log.d(TAG, "Error accessing file: " + e.getMessage());
             }
         }
-
-    }
-
+    };
 }

@@ -101,7 +101,7 @@ public class LeaderboardFragment extends Fragment {
             ArrayList<String> usernames = new ArrayList<>();
             usernames.add("Gert");
             usernames.add("Davy");
-            usernames.add("Edgar (Ik)");
+            usernames.add("Edgar");
             usernames.add("Cindy");
             usernames.add("Joe");
             usernames.add("Klara");
@@ -139,8 +139,6 @@ public class LeaderboardFragment extends Fragment {
 
         public PageAdapter(FragmentManager fm) {
             super(fm);
-            m_fragments.add(new LeaderboardTabFragment());
-            m_fragmentsTitles.add("Oefen");
 
             m_fragments.add(new LeaderboardTabFragment());
             m_fragmentsTitles.add("Vind & Scan");

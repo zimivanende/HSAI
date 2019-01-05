@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.samples.fietsveilig.R.color.colorPrimary;
+
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder> {
 
     private ArrayList<String> m_images = new ArrayList<>();
@@ -74,7 +76,16 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
         holder.m_score.setText(m_scores.get(position));
 
         // TODO: add image loading
-        holder.m_image.setImageResource(R.drawable.ic_person_black_24dp);
+        if (m_usernames.get(position).equals("Edgar")) {
+            holder.m_image.setImageResource(R.drawable.ic_person_white_24dp);
+            holder.itemView.setBackgroundColor(m_context.getResources().getColor(colorPrimary));
+            holder.m_username.setTextColor(m_context.getResources().getColor(R.color.textOnOthers));
+            holder.m_rank.setTextColor(m_context.getResources().getColor(R.color.textOnOthers));
+            holder.m_score.setTextColor(m_context.getResources().getColor(R.color.textOnOthers));
+        }
+        else {
+            holder.m_image.setImageResource(R.drawable.ic_person_black_24dp);
+        }
 
         holder.m_parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
