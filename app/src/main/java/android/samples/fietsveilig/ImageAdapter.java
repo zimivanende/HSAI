@@ -27,7 +27,8 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     // create a new ImageView for each item referenced by the Adapter
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
+        mPosition = position;
         ImageView imageView;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
@@ -41,7 +42,7 @@ public class ImageAdapter extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showMessagePopup(position);
+                showMessagePopup();
             }
         });
 
@@ -49,10 +50,10 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
-    private void showMessagePopup(int pos){
+    private void showMessagePopup(){
         new AlertDialog.Builder(this)
                 .setTitle("Info")
-                .setMessage(mMessages[pos])
+                .setMessage(mMessages[mPosition])
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setNeutralButton("ok", null).show();
     }
@@ -66,6 +67,7 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.borden10, R.drawable.borden11,
             R.drawable.borden12
     };
+    private int mPosition;
 
     private String[] mMessages = {
             "Begin verplicht fietspad", "Einde verplicht fietspad", "Begin onverplicht fietspad",
