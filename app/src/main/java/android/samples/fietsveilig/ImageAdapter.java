@@ -27,8 +27,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     // create a new ImageView for each item referenced by the Adapter
-    public View getView(int position, View convertView, ViewGroup parent) {
-        mPosition = position;
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ImageView imageView;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
@@ -42,7 +41,7 @@ public class ImageAdapter extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showMessagePopup();
+                showMessagePopup(position);
             }
         });
 
@@ -50,10 +49,10 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
-    private void showMessagePopup(){
-        new AlertDialog.Builder(this)
+    private void showMessagePopup(final int position){
+        new AlertDialog.Builder(mContext)
                 .setTitle("Info")
-                .setMessage(mMessages[mPosition])
+                .setMessage(mMessages[position])
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setNeutralButton("ok", null).show();
     }
