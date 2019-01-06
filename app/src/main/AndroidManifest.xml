@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="android.samples.fietsveilig">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -12,11 +13,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_logo_red_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:noHistory="true">
+            android:noHistory="true"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,9 +62,46 @@
                 android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />
         </activity>
         <activity
+            android:name=".minigames.MemoryInfoActivity"
+            android:label="@string/title_activity_memory_info"
+            android:parentActivityName=".minigames.MiniGamesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />
+        </activity>
+        <activity
+            android:name=".minigames.SearchAndFindInfoActivity"
+            android:label="@string/title_activity_sesrch_and_find_info"
+            android:parentActivityName=".minigames.MiniGamesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />
+        </activity>
+        <activity
             android:name=".minigames.SearchAndFindActivity"
             android:label="@string/title_activity_search_and_find2"
-            android:parentActivityName=".minigames.MiniGamesActivity">
+            android:parentActivityName=".minigames.MiniGamesActivity"
+            android:theme="@style/NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />
+        </activity>
+        <activity
+            android:name=".minigames.CollectionActivity"
+            android:label="@string/title_activity_collection"
+            android:parentActivityName=".minigames.SearchAndFindActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.samples.fietsveilig.minigames.SearchAndFindActivity" />
+        </activity>
+        <activity
+            android:name=".minigames.VirtualRouteActivity"
+            android:label="@string/title_activity_virtual_route"
+            android:parentActivityName=".minigames.MiniGamesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.samples.fietsveilig.minigames.MiniGamesActivity" />

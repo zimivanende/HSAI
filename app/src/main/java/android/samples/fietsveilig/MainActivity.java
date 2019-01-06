@@ -1,9 +1,11 @@
 package android.samples.fietsveilig;
 
+import android.content.DialogInterface;
 import android.samples.fietsveilig.challenges.ChallengesFragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.samples.fietsveilig.leaderboard.LeaderboardFragment;
+import android.samples.fietsveilig.minigames.SearchAndFindActivity;
 import android.samples.fietsveilig.profile.ProfileFragment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -12,6 +14,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -125,15 +128,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mHomeVisible = false;
                 break;
             case R.id.nav_logout:
-                SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putBoolean("isLoggedIn", false);
-                editor.putBoolean("isGuest", false);
-                editor.apply();
-                finish();
-                Intent transfer = new Intent(this, LoginActivity.class);
-                startActivity(transfer);
-                mHomeVisible = false;
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder
+                        .setMessage("Ben je zeker dat je de minigame wilt verlaten? Je ontvangt geen punten.")
+                        .setCancelable(false)
+                        .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Uitloggen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sp.edit();
+                                editor.putBoolean("isLoggedIn", false);
+                                editor.putBoolean("isGuest", false);
+                                editor.apply();
+                                finish();
+                                Intent transfer = new Intent(getBaseContext(), LoginActivity.class);
+                                startActivity(transfer);
+                                mHomeVisible = false;
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
                 break;
         }
 

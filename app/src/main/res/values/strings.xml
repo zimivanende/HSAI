@@ -61,5 +61,24 @@
     <string name="title_activity_search_and_find">SearchAndFindActivity</string>
     <string name="title_activity_memory2">Memory spelen</string>
     <string name="title_activity_search_and_find2">Zoek de verkeersborden</string>
+    <string name="title_activity_memory_info">MemoryInfoActivity</string>
+    <string name="start_memory_button">Start Memory</string>
+    <string name="memory_info_text">Dit is het spel memory
+        Het is de bedoeling om twee dezelfde kaarten te vinden.
+        Dit in zo weinig mogelijk beurten. Hoe minder beurten, hoe meer punten.\n
+        Druk op onderstaande knop om het spel te starten.\n\n
+        HIGH SCORE: 76
+    </string>
+    <string name="search_and_find_info_text">Dit is het spel memory
+        Het is de bedoeling om met de camera verkeersborden langs de weg te scannen.
+        Je krijgt dan het bord te zien en de betekenis ervan. Je krijgt punten voor elk nieuw gescand verkeersbord.\n
+        Je kan alle gescande verkeersborden bekijken in de collectie.\n
+        Druk op onderstaande knop om het spel te starten.\n\n
+        HIGH SCORE: 76
+    </string>
+    <string name="title_activity_sesrch_and_find_info">Zoek de verkeersborden</string>
+    <string name="start_search_and_find_button">Start Zoek de verkeersborden</string>
+    <string name="title_activity_collection">CollectionActivity</string>
+    <string name="title_activity_virtual_route">VirtualRouteActivity</string>
 
 </resources>

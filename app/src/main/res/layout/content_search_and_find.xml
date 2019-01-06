@@ -1,9 +1,90 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment"
-    android:name="android.samples.fietsveilig.minigames.SearchAndFindActivityFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:layout="@layout/fragment_search_and_find" />
+    tools:context=".minigames.SearchAndFindActivity"
+    tools:showIn="@layout/activity_search_and_find">
+
+    <Button
+        android:id="@+id/button_capture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimary"
+        android:text="Scan"
+        android:textColor="@color/textOnOthers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/collection_button"
+        app:layout_constraintTop_toBottomOf="@+id/placeholder" />
+
+    <ImageView
+        android:id="@+id/sign"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/borden"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sign_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collection_button" />
+
+    <TextView
+        android:id="@+id/sign_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Verplicht Fietspad"
+        android:textAlignment="center"
+        android:textColor="@color/textOnWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sign"
+        app:layout_constraintTop_toBottomOf="@+id/button_capture" />
+
+    <Button
+        android:id="@+id/collection_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:text="Collectie"
+        android:textColor="@color/textOnOthers"
+        app:layout_constraintBottom_toTopOf="@+id/sign"
+        app:layout_constraintEnd_toStartOf="@+id/button_capture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/placeholder" />
+
+    <ImageView
+        android:id="@+id/placeholder"
+        android:layout_width="342dp"
+        android:layout_height="298dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="fietspadBord"
+        android:cropToPadding="false"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fietspad"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button_capture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

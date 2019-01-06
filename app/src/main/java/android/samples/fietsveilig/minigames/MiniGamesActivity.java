@@ -62,14 +62,14 @@ public class MiniGamesActivity extends AppCompatActivity {
     }
 
     private void startMemoryFragment() {
-        Intent transfer = new Intent(this, MemoryActivity.class);
+        Intent transfer = new Intent(this, MemoryInfoActivity.class);
         startActivity(transfer);
     }
 
     private void startSearchAndFindFragment() {
         Camera cam = getCameraInstance();
-        if (cam != null) {
-            Intent transfer = new Intent(this, SearchAndFindActivity.class);
+        if (cam == null) {
+            Intent transfer = new Intent(this, SearchAndFindInfoActivity.class);
             startActivity(transfer);
         }
         else {
@@ -82,5 +82,7 @@ public class MiniGamesActivity extends AppCompatActivity {
     private void startVirtualRouteFragment() {
         Toast.makeText(this, "Je hebt niet de juiste status om deze minigame vrij te spelen, dit gebeurt pas als je de status 'Expert' hebt. Blijf oefenen",
                 Toast.LENGTH_LONG).show();
+        //Intent transfer = new Intent(this, VirtualRouteActivity.class);
+        //startActivity(transfer);
     }
 }
