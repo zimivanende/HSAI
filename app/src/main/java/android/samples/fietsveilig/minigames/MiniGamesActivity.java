@@ -40,12 +40,19 @@ public class MiniGamesActivity extends AppCompatActivity {
                 startSearchAndFindFragment();
             }
         });
-        Button virtualRoute_button =(Button) findViewById(R.id.button_virtual_route);
+        final Button virtualRoute_button = (Button) findViewById(R.id.button_virtual_route);
         virtualRoute_button.setEnabled(true);
         virtualRoute_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startVirtualRouteFragmentDisabled();
+            }
+        });
+        virtualRoute_button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
                 startVirtualRouteFragment();
+                return true;
             }
         });
     }
@@ -79,10 +86,15 @@ public class MiniGamesActivity extends AppCompatActivity {
 
     }
 
-    private void startVirtualRouteFragment() {
+    private void startVirtualRouteFragmentDisabled() {
         Toast.makeText(this, "Je hebt niet de juiste status om deze minigame vrij te spelen, dit gebeurt pas als je de status 'Expert' hebt. Blijf oefenen",
                 Toast.LENGTH_LONG).show();
         //Intent transfer = new Intent(this, VirtualRouteActivity.class);
         //startActivity(transfer);
+    }
+
+    private void startVirtualRouteFragment() {
+        Intent transfer = new Intent(this, VirtualRouteActivity.class);
+        startActivity(transfer);
     }
 }
