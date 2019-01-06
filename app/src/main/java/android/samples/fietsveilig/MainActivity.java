@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             NavigationView nv = (NavigationView) findViewById(R.id.nav_view);
             Menu menuNav = navigationView.getMenu();
             MenuItem nav_item2 = menuNav.findItem(R.id.nav_leaderboard);
-            nav_item2.setEnabled(false);
+            nav_item2.setVisible(false);
         }
     }
 
