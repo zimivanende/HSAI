@@ -1,9 +1,11 @@
 package android.samples.fietsveilig.test;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.samples.fietsveilig.R;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import java.util.Vector;
 
@@ -57,7 +59,7 @@ public class TestActivity extends AppCompatActivity {
 
     }
 
-    private void setQuestions(){
+    private void setQuestions() {
         m_voorrangZebra.setQuestion("Voorrang op zebrapaden is enkel voorbehouden voor?");
         m_voorrangZebra.setAnswer1("Fietsers");
         m_voorrangZebra.setAnswer2("Bromfietsers");
@@ -125,7 +127,7 @@ public class TestActivity extends AppCompatActivity {
                 "is voor een echt fietspad.\nVoor meer info bekijk even de theorie.");
     }
 
-    private void showMessagePopup(String message){
+    private void showMessagePopup(String message) {
         new AlertDialog.Builder(this)
                 .setTitle("Explanation")
                 .setMessage(message)
@@ -136,33 +138,81 @@ public class TestActivity extends AppCompatActivity {
     /**
      * Calculates the xp gained from doing the questions
      */
-    private int getXp(){
+    private int getXp() {
         return m_accumulatedScore * 3 - mNumUsedHints * 2;
     }
 
     /**
      * Makes the next test visible
      */
-    public void setNextTestActivity(){
+    public void setNextTestActivity() {
         int currentIndex = m_testFragments.indexOf(m_currentQuestion);
 
         // if there are no more questions go to resultFragment
-        if (currentIndex == (m_testFragments.size()-1)){
+        if (currentIndex == (m_testFragments.size() - 1)) {
             m_accumulatedScore += m_currentQuestion.getScore();
             m_resultFragment.setScore(m_accumulatedScore, m_testFragments.size(), getXp());
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_resultFragment).commit();
         }
         // if there are questions remaining, set next question fragment
-        else if (currentIndex < m_testFragments.size()){
+        else if (currentIndex < m_testFragments.size()) {
             m_accumulatedScore += m_currentQuestion.getScore();
 
             if (m_currentQuestion.hintUsed())
                 mNumUsedHints++;
 
-            m_currentQuestion = m_testFragments.get(currentIndex+1);
-            m_currentQuestion.setProgress((currentIndex+2) + "/" + m_testFragments.size());
+            m_currentQuestion = m_testFragments.get(currentIndex + 1);
+            m_currentQuestion.setProgress((currentIndex + 2) + "/" + m_testFragments.size());
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, m_currentQuestion).commit();
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TestActivity.this);
+        alertDialogBuilder
+                .setMessage("Ben je zeker dat je de oefening wilt verlaten? Je ontvangt geen punten.")
+                .setCancelable(false)
+                .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNegativeButton("Stoppen met oefenenen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        TestActivity.super.onBackPressed();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TestActivity.this);
+                alertDialogBuilder
+                        .setMessage("Ben je zeker dat je de oefening wilt verlaten? Je ontvangt geen punten.")
+                        .setCancelable(false)
+                        .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Stoppen met oefenen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                TestActivity.super.onBackPressed();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
+        }
+        return true;
+    }
 }

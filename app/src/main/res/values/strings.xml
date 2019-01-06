@@ -63,18 +63,11 @@
     <string name="title_activity_search_and_find2">Zoek de verkeersborden</string>
     <string name="title_activity_memory_info">MemoryInfoActivity</string>
     <string name="start_memory_button">Start Memory</string>
-    <string name="memory_info_text">Dit is het spel memory
-        Het is de bedoeling om twee dezelfde kaarten te vinden.
-        Dit in zo weinig mogelijk beurten. Hoe minder beurten, hoe meer punten.\n
-        Druk op onderstaande knop om het spel te starten.\n\n
-        HIGH SCORE: 76
+    <string name="memory_info_text">Dit is het spel "Memory". Het is de bedoeling om twee dezelfde kaarten te vinden. Dit in zo weinig mogelijk beurten. Hoe minder beurten, hoe meer punten.\nDruk op onderstaande knop om het spel te starten.\n\nHIGH SCORE: 76
     </string>
-    <string name="search_and_find_info_text">Dit is het spel memory
-        Het is de bedoeling om met de camera verkeersborden langs de weg te scannen.
-        Je krijgt dan het bord te zien en de betekenis ervan. Je krijgt punten voor elk nieuw gescand verkeersbord.\n
-        Je kan alle gescande verkeersborden bekijken in de collectie.\n
-        Druk op onderstaande knop om het spel te starten.\n\n
-        HIGH SCORE: 76
+    <string name="search_and_find_info_text">Dit is het spel "Zoek de verkeersborden". Het is de bedoeling om met de camera verkeersborden langs de weg te scannen. Je krijgt dan het bord te zien en de betekenis ervan. Je krijgt punten voor elk nieuw gescand verkeersbord.\nJe kan alle gescande verkeersborden bekijken in de collectie.\nDruk op onderstaande knop om het spel te starten.\n\nHIGH SCORE: 76
+    </string>
+    <string name="virtual_route_text">Dit is het spel "Doe virtuele route". Het is de bedoeling om met de pijltjes de wereld te verkennen.\n Per 10km die je aflegd krijg je 1 punt.\n\nAFGELEGDE WEG: 76 km
     </string>
     <string name="title_activity_sesrch_and_find_info">Zoek de verkeersborden</string>
     <string name="start_search_and_find_button">Start Zoek de verkeersborden</string>

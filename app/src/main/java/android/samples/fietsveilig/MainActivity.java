@@ -130,9 +130,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_logout:
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 alertDialogBuilder
-                        .setMessage("Ben je zeker dat je de minigame wilt verlaten? Je ontvangt geen punten.")
+                        .setMessage("Ben je zeker dat je wilt uitloggen?")
                         .setCancelable(false)
-                        .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Annuleren", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
