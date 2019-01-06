@@ -165,4 +165,48 @@ public class TestActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TestActivity.this);
+        alertDialogBuilder
+                .setMessage("Ben je zeker dat je de oefening wilt verlaten? Je ontvangt geen punten.")
+                .setCancelable(false)
+                .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNegativeButton("Stoppen met oefenenen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        TestActivity.super.onBackPressed();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TestActivity.this);
+                alertDialogBuilder
+                        .setMessage("Ben je zeker dat je de oefening wilt verlaten? Je ontvangt geen punten.")
+                        .setCancelable(false)
+                        .setPositiveButton("Doorgaan", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Stoppen met oefenen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                TestActivity.super.onBackPressed();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
 }
