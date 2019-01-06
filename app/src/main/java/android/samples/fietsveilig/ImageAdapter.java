@@ -37,9 +37,23 @@ public class ImageAdapter extends BaseAdapter {
         } else {
             imageView = (ImageView) convertView;
         }
+        imageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMessagePopup(position);
+            }
+        });
 
         imageView.setImageResource(mThumbIds[position]);
         return imageView;
+    }
+
+    private void showMessagePopup(int pos){
+        new AlertDialog.Builder(this)
+                .setTitle("Info")
+                .setMessage(mMessages[pos])
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setNeutralButton("ok", null).show();
     }
 
     // references to our images
@@ -51,4 +65,14 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.borden10, R.drawable.borden11,
             R.drawable.borden12
     };
+
+    private String[] mMessages = {
+            "Begin verplicht fietspad", "Einde verplicht fietspad", "Begin onverplicht fietspad",
+            "Einde onverplicht fietspad", "Parkeerplaats fietsers en brommers",
+            "LET OP! Recht doorgaande fietsers in twee richtingen", "Verplicht fietspad met tegenliggers",
+            "Uitgezonderd fietsers", "Begin van een voetgangerszone",
+            "Einde van een voetgangerszone", "Doodlopende weg met doorgang voor fietsers en voetgangers",
+            ""
+    };
+
 }

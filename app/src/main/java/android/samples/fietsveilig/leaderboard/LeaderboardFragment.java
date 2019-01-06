@@ -141,13 +141,15 @@ public class LeaderboardFragment extends Fragment {
             super(fm);
 
             m_fragments.add(new LeaderboardTabFragment());
-            m_fragmentsTitles.add("Vind & Scan");
-
-            m_fragments.add(new LeaderboardTabFragment());
-            m_fragmentsTitles.add("Navigatie-route");
-
-            m_fragments.add(new LeaderboardTabFragment());
             m_fragmentsTitles.add("Memory");
+
+            m_fragments.add(new LeaderboardTabFragment());
+            m_fragmentsTitles.add("Zoek");
+
+            m_fragments.add(new LeaderboardTabFragment());
+            m_fragmentsTitles.add("Route");
+
+
         }
 
         @Override
